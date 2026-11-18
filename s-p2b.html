@@ -1,0 +1,97 @@
+<!doctype html><html lang="fr" class="proto" data-state="p2b"><head><meta name="viewport" content="width=390,user-scalable=no"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="dance.css">
+<style>
+html.phoneboard .board { gap: 34px; padding: 20px 36px; }
+.pair { display: flex; gap: 26px; flex: none; }
+.notes { max-width: 340px; }
+.notes h1 { font-size: 34px; }
+.notes .screenname { font-size: 15px; margin-bottom: 12px; }
+.notes li { font-size: 13.5px; padding: 5px 0 5px 20px; }
+.notes .test { font-size: 13px; padding: 12px 14px; }
+.notes .ref { margin-bottom: 8px; }
+.notes .ref span { font-size: 11px; padding: 5px 9px; }
+
+.nav { position: absolute; top: 58px; left: 16px; right: 18px; height: 40px; display: flex; align-items: center; gap: 10px; z-index: 20; }
+.nav .bk { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,.08); display: grid; place-items: center; font: 600 20px -apple-system, system-ui, sans-serif; color: #fff; }
+.nav b { font: 700 15px -apple-system, system-ui, sans-serif; }
+.nav .r { margin-left: auto; font: 600 13.5px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.prog { position: absolute; top: 108px; left: 22px; right: 22px; }
+.prog .bars { display: flex; gap: 5px; }
+.prog .bars i { flex: 1; height: 4px; border-radius: 2px; background: rgba(255,255,255,.12); }
+.prog .bars i.on { background: #fff; }
+.prog .lab { font: 650 11px ui-monospace, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--t2); margin-top: 9px; }
+.ttl { position: absolute; top: 142px; left: 22px; right: 22px; }
+.ttl h2 { font: 800 29px/1.06 -apple-system, system-ui, sans-serif; letter-spacing: -.03em; }
+.ttl p { font: 500 14px/1.42 -apple-system, system-ui, sans-serif; color: var(--t2); margin-top: 8px; }
+
+/* Téléphone A : la présentation à la voix */
+.idea { position: absolute; top: 262px; left: 22px; right: 22px; display: flex; flex-wrap: wrap; gap: 6px; }
+.idea .chip { height: 30px; font-size: 12px; padding: 0 10px; }
+.tr { position: absolute; top: 308px; left: 16px; right: 16px; padding: 14px 16px; border-radius: 22px; background: var(--s1); border: 1px solid var(--line); }
+.tr q { display: block; font: 500 15px/1.45 -apple-system, system-ui, sans-serif; color: var(--t1); quotes: "« " " »"; }
+.tr q span { color: var(--t2); }
+.tr q .cur { display: inline-block; width: 2px; height: 17px; background: var(--ref); vertical-align: -3px; margin-left: 2px; }
+.tr .auto { display: block; margin-top: 9px; font-size: 11.5px; }
+.rec { position: absolute; top: 478px; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; }
+.rec .time { font: 700 38px ui-monospace, Menlo, monospace; letter-spacing: -.02em; color: var(--ref); }
+.rec .time small { font: 600 17px ui-monospace, Menlo, monospace; color: var(--t2); }
+.rec .wave { display: flex; align-items: center; gap: 3px; height: 32px; margin: 6px 0 16px; width: 300px; }
+.rec .wave i { display: block; width: 3px; border-radius: 2px; }
+.rec .wave i.past { background: var(--ref); } .rec .wave i.fut { background: rgba(255,255,255,.18); }
+.rec .mic { width: 84px; height: 84px; border-radius: 50%; background: var(--ref); display: grid; place-items: center;
+  box-shadow: 0 0 0 10px rgba(0,245,212,.16), 0 0 0 22px rgba(0,245,212,.07), 0 0 40px rgba(0,245,212,.5); }
+.rec .mic i { width: 28px; height: 28px; border-radius: 7px; background: #00211C; display: block; }
+.rec .cap { font: 600 13px -apple-system, system-ui, sans-serif; color: var(--t2); margin-top: 26px; }
+.foot { position: absolute; left: 16px; right: 16px; bottom: 30px; display: flex; gap: 10px; }
+.foot .btn { height: 54px; font-size: 16px; }
+.foot .btn.primary { flex: 1; }
+
+/* Téléphone B : le récapitulatif */
+.cards { position: absolute; top: 112px; left: 14px; right: 14px; display: flex; flex-direction: column; gap: 12px; }
+.cd { border-radius: 20px; background: var(--s1); border: 1px solid var(--line); padding: 11px 14px; }
+.cd .h { display: flex; align-items: center; gap: 8px; font: 700 14.5px -apple-system, system-ui, sans-serif; }
+.cd .h .n { width: 20px; height: 20px; border-radius: 50%; background: rgba(255,255,255,.1); display: grid; place-items: center; font: 750 10.5px ui-monospace, Menlo, monospace; flex: none; }
+.cd .h .ed { margin-left: auto; font: 600 12.5px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.cd p { font: 500 12px/1.4 -apple-system, system-ui, sans-serif; color: var(--t2); margin-top: 5px; }
+.cd p b { color: var(--t1); font-weight: 650; }
+.cd .voice { padding: 0; margin-top: 8px; gap: 8px; }
+.cd .voice .play { width: 28px; height: 28px; }
+.cd .voice .play::after { border-left-width: 9px; border-top-width: 6px; border-bottom-width: 6px; }
+.cd .voice .wave { height: 20px; }
+.les { display: flex; gap: 6px; margin-top: 8px; }
+.les span { flex: 1; height: 34px; border-radius: 10px; background: rgba(255,255,255,.06); display: flex; align-items: center; justify-content: center; font: 650 12px -apple-system, system-ui, sans-serif; white-space: nowrap; }
+.step { margin-left: auto; display: flex; align-items: center; border-radius: 10px; background: rgba(255,255,255,.08); font: 750 14px ui-rounded, -apple-system, system-ui, sans-serif; height: 30px; }
+.step span { width: 30px; text-align: center; color: var(--t2); font-weight: 600; }
+.step b { min-width: 18px; text-align: center; }
+.pr { display: flex; align-items: center; gap: 8px; height: 33px; border-top: 1px solid var(--line); font: 600 13.5px -apple-system, system-ui, sans-serif; }
+.pr:first-of-type { margin-top: 6px; }
+.pr small { font: 500 11.5px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.pr .amt { margin-left: auto; height: 28px; min-width: 58px; padding: 0 10px; border-radius: 9px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); display: flex; align-items: center; justify-content: flex-end; font: 750 14.5px ui-rounded, -apple-system, system-ui, sans-serif; flex: none; }
+.opts { display: flex; gap: 6px; margin-top: 8px; }
+.opts .chip { flex: 1; justify-content: center; height: 34px; font-size: 13.5px; }
+.opts .chip.on { background: #fff; color: #000; }
+.team { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+.team .avatar { width: 32px; height: 32px; font-size: 11.5px; }
+.team .karim { background: #3A3A44; color: #fff; }
+.team b { display: block; font: 650 13.5px -apple-system, system-ui, sans-serif; }
+.team small { display: block; font: 500 11.5px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.team .state { margin-left: auto; }
+</style><link rel="stylesheet" href="proto-frame.css"></head><body><div class="phone"><div class="screen">
+  <div class="island"></div>
+  <div class="status"><span>21:49</span><span class="r">●●● 5G <span class="bat"></span></span></div>
+  <div class="nav"><div class="bk">‹</div><b>Tout relire, puis ouvrir</b><span class="r">Plus tard</span></div>
+  <div class="cards">
+    <div class="cd"><div class="h"><span class="n">1</span>Ta présentation<div class="voice" style="margin:0 0 0 auto;width:178px"><div class="play"></div><div class="wave" data-n="22" data-seed="5" data-h="14"></div><span class="dur">0:28</span></div></div></div>
+    <div class="cd"><div class="h"><span class="n">2</span>Ton cours<span class="ed">Touche pour changer</span></div>
+      <div class="pr">Salsa fusion · les bases<span class="amt">nom</span></div>
+      <p>Tes élèves invités voient toutes tes leçons. Tu en ajoutes quand tu veux.</p></div>
+    <div class="cd"><div class="h"><span class="n">3</span>Ton délai pour répondre</div>
+      <div class="opts"><span class="chip">24 h</span><span class="chip on">48 h</span><span class="chip">72 h</span></div>
+      <p>Tes élèves le voient au moment d'envoyer leur vidéo.</p></div>
+    <div class="cd"><div class="h"><span class="n">★</span>Pilote · l'app est gratuite</div>
+      <p>OptimalFlow ne prend rien pendant le pilote. Tes retours, tu les fais payer toi-même à tes élèves, comme tes cours.</p></div>
+  </div>
+  <div class="foot"><span class="btn primary">Ouvrir mon cours</span></div>
+  <div class="home-ind"></div>
+</div></div><script>try{
+document.querySelectorAll(".wave[data-n]").forEach(w=>{const n=+w.dataset.n,p=+(w.dataset.p||0),s=+(w.dataset.seed||1),h=+(w.dataset.h||22);for(let i=0;i<n;i++){const v=Math.abs(Math.sin(i*1.7+s)*Math.cos(i*.37+s*2));const b=document.createElement("i");b.style.height=(4+v*h)+"px";if(p)b.className=i/n<p?"past":"fut";w.appendChild(b);}});
+}catch(e){}</script><script src="flows.js"></script><script src="frame.js"></script></body></html>

@@ -1,0 +1,81 @@
+<!doctype html><html lang="fr" class="proto" data-state="e6"><head><meta name="viewport" content="width=390,user-scalable=no"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="dance.css">
+<style>
+.top { position: absolute; top: 56px; left: 16px; right: 16px; height: 40px; display: flex; align-items: center; gap: 10px; z-index: 20; font: 700 16px -apple-system, system-ui, sans-serif; }
+.top .x { font: 300 30px/1 -apple-system, system-ui, sans-serif; width: 20px; margin-top: -3px; }
+.top small { font: 500 13px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.top .chip { margin-left: auto; }
+/* Le duo : Nora à gauche (cyan), Inès en miroir à droite (rose). Aucun calque, aucun verdict. */
+.pane { top: 104px; height: 300px; width: 194px; background: #2a1d17; }
+.pane.l { left: 0; } .pane.r { right: 0; }
+.pane .art { left: -133px; top: 0; width: 460px; height: 307px; }
+.pane.r .art img { filter: saturate(.9) brightness(.92); }
+.pane .veil { background: linear-gradient(180deg, rgba(0,0,0,.4), rgba(0,0,0,0) 22%, rgba(0,0,0,0) 78%, rgba(0,0,0,.5)); }
+.pane.l { box-shadow: inset 0 0 0 0 transparent; }
+.edge { position: absolute; top: 104px; height: 300px; width: 3px; z-index: 6; }
+.edge.l { left: 0; background: var(--ref); } .edge.r { right: 0; background: var(--me); }
+.seam { position: absolute; left: 194px; top: 104px; width: 2px; height: 300px; background: var(--bg); z-index: 5; }
+.tag { position: absolute; top: 114px; z-index: 10; font: 800 11px ui-monospace, Menlo, monospace; letter-spacing: .06em; padding: 4px 8px; border-radius: 7px; }
+.tag.l { left: 10px; background: var(--ref); color: #00211C; }
+.tag.r { right: 10px; background: var(--me); color: #fff; }
+.tc { position: absolute; top: 374px; z-index: 10; font: 650 11px ui-monospace, Menlo, monospace; color: #fff; background: rgba(0,0,0,.55); padding: 3px 7px; border-radius: 6px; }
+.tc.l { left: 10px; } .tc.r { right: 10px; }
+
+/* Lecture commune, neutre */
+.play { position: absolute; top: 416px; left: 16px; right: 16px; display: flex; align-items: center; gap: 12px; }
+.play .pb { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.12); display: grid; place-items: center; flex: none; }
+.play .pb::after { content: ""; border-left: 12px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 4px; }
+.play .tr { flex: 1; position: relative; height: 6px; border-radius: 3px; background: rgba(255,255,255,.16); }
+.play .tr b { position: absolute; left: 0; top: 0; bottom: 0; width: 24%; border-radius: 3px; background: #fff; }
+.play .tr i { position: absolute; left: 24%; top: 50%; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 4px rgba(255,255,255,.18); }
+.play .t { font: 600 12.5px ui-monospace, Menlo, monospace; color: var(--t2); white-space: nowrap; }
+
+/* Question facultative, en vocal */
+.ask { position: absolute; top: 468px; left: 14px; right: 14px; height: 58px; border-radius: 20px; background: var(--s1); border: 1px solid var(--line); display: flex; align-items: center; gap: 12px; padding: 0 14px 0 10px; }
+.ask .mc { width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.5); display: grid; place-items: center; flex: none; }
+.ask .mc svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; }
+.ask b { display: block; font: 700 14.5px -apple-system, system-ui, sans-serif; }
+.ask span { font: 500 12px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.ask .opt { margin-left: auto; font: 600 11.5px -apple-system, system-ui, sans-serif; color: var(--t2); }
+
+/* Le coût, dit clairement */
+.cost { position: absolute; top: 536px; left: 14px; right: 14px; border-radius: 22px; background: var(--s1); border: 1px solid var(--line); padding: 12px 14px 4px; }
+.cost h3 { font: 700 11px ui-monospace, Menlo, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--t2); margin-bottom: 6px; }
+.cost .ln { display: flex; gap: 10px; align-items: flex-start; padding: 5px 0; border-top: 1px solid var(--line); font: 500 13px/1.32 -apple-system, system-ui, sans-serif; color: var(--t2); }
+.cost .ln:first-of-type { border-top: 0; }
+.cost .ln b { color: var(--t1); font-weight: 700; }
+.cost .ln .ic { width: 18px; flex: none; text-align: center; font: 700 13px -apple-system, system-ui, sans-serif; color: var(--t1); }
+
+.acts { position: absolute; left: 14px; right: 14px; top: 756px; display: flex; gap: 8px; }
+.acts .btn { height: 54px; }
+.acts .btn.ghost { padding: 0 18px; font-size: 15px; }
+.acts .btn.primary { flex: 1; }
+.acts .avatar { width: 28px; height: 28px; background: var(--ref); color: #00211C; font-size: 10px; }
+</style><link rel="stylesheet" href="proto-frame.css"></head><body><div class="phone"><div class="screen">
+  <div class="island"></div>
+  <div class="status"><span>19:01</span><span class="r">●●● 5G <span class="bat"></span></span></div>
+  <div class="top"><span class="x">‹</span><div>Ta prise <small>· Mambo Slide</small></div><span class="chip">34 s</span></div>
+
+  <div class="shot pane l"><div class="art"><img src="img/street.jpg"></div><div class="veil"></div></div>
+  <div class="shot pane r mirror"><div class="art"><img src="img/street.jpg"></div><div class="veil"></div></div>
+  <div class="edge l"></div><div class="edge r"></div>
+  <div class="seam"></div>
+  <div class="tag l">NORA · DÉMO</div>
+  <div class="tag r">MOI</div>
+  <div class="tc l">0:08</div><div class="tc r">0:08</div>
+
+  <div class="play"><div class="pb"></div><span class="t">0:08</span><div class="tr"><b></b><i></i></div><span class="t">0:34</span></div>
+
+
+  <div class="cost">
+    <h3>Ce que coûte cet envoi&nbsp;: rien</h3>
+    <div class="ln"><span class="ic">★</span><span><b>Pilote&nbsp;:</b> l'app est gratuite. Ce retour, tu le règles avec Nora, comme convenu avec elle.</span></div>
+    <div class="ln"><span class="ic">◷</span><span>Réponse promise <b>d'ici mer. 18 nov 19:02</b>.</span></div>
+    <div class="ln"><span class="ic">⊘</span><span>Vidéo privée : seule <b>Nora</b> la voit.</span></div>
+  </div>
+
+  <div class="acts">
+    <div class="btn ghost" style="padding:0;width:54px;font-size:20px">↺</div>
+    <div class="btn primary" style="padding:0 10px;font-size:15px;white-space:nowrap">Envoyer à Nora</div>
+  </div>
+  <div class="home-ind"></div>
+</div></div><script src="flows.js"></script><script src="frame.js"></script></body></html>

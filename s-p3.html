@@ -1,0 +1,64 @@
+<!doctype html><html lang="fr" class="proto" data-state="p3"><head><meta name="viewport" content="width=390,user-scalable=no"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="dance.css">
+<style>
+.tabbar svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.hd { position: absolute; top: 62px; left: 22px; right: 18px; display: flex; align-items: flex-start; }
+.hd .d { font: 650 11.5px ui-monospace, Menlo, monospace; letter-spacing: .1em; color: var(--t2); text-transform: uppercase; }
+.hd h2 { font: 800 31px/1.05 -apple-system, system-ui, sans-serif; letter-spacing: -.03em; margin-top: 5px; }
+.hd .avatar { margin-left: auto; width: 40px; height: 40px; font-size: 13px; background: var(--ref); color: #00211C; margin-top: 4px; }
+.empty { position: absolute; top: 150px; left: 14px; right: 14px; border-radius: 28px; background: var(--s1); border: 1px solid var(--line); padding: 22px 20px 20px; }
+.empty .ic { width: 52px; height: 52px; border-radius: 16px; background: rgba(255,255,255,.06); display: grid; place-items: center; }
+.empty .ic svg { width: 28px; height: 28px; fill: none; stroke: var(--t2); stroke-width: 1.7; stroke-linejoin: round; stroke-linecap: round; }
+.empty .k { font: 650 11px ui-monospace, Menlo, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--t2); margin-top: 16px; }
+.empty h3 { font: 800 25px/1.12 -apple-system, system-ui, sans-serif; letter-spacing: -.025em; margin-top: 5px; }
+.empty p { font: 500 14px/1.45 -apple-system, system-ui, sans-serif; color: var(--t2); margin-top: 9px; }
+.empty p b { color: var(--t1); font-weight: 650; }
+.slot { margin-top: 16px; height: 58px; border-radius: 16px; border: 1.5px dashed rgba(255,255,255,.2); display: flex; align-items: center; gap: 11px; padding: 0 13px; }
+.slot .ini { width: 34px; height: 34px; border-radius: 50%; border: 1.5px dashed rgba(255,255,255,.25); background: transparent; }
+.slot .l i { display: block; height: 9px; border-radius: 5px; background: rgba(255,255,255,.1); width: 90px; }
+.slot .l i + i { width: 130px; margin-top: 7px; background: rgba(255,255,255,.06); }
+.slot span { margin-left: auto; font: 600 12px -apple-system, system-ui, sans-serif; color: var(--t2); white-space: nowrap; }
+.go { position: absolute; top: 494px; left: 14px; right: 14px; display: flex; flex-direction: column; gap: 10px; }
+.big { display: flex; align-items: center; gap: 14px; height: 78px; border-radius: 26px; padding: 0 18px; }
+.big.primary { background: #fff; color: #000; }
+.big.ghost { background: rgba(255,255,255,.08); color: #fff; height: 68px; }
+.big svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.big b { display: block; font: 750 17.5px -apple-system, system-ui, sans-serif; }
+.big small { display: block; font: 500 13px -apple-system, system-ui, sans-serif; margin-top: 2px; }
+.big.primary small { color: #444; }
+.big.ghost small { color: var(--t2); }
+.big .ar { margin-left: auto; font: 600 20px -apple-system, system-ui, sans-serif; }
+.ready { position: absolute; top: 660px; left: 22px; right: 22px; font: 500 12.5px/1.45 -apple-system, system-ui, sans-serif; color: var(--t2); }
+.ready b { color: var(--t1); font-weight: 650; }
+</style><link rel="stylesheet" href="proto-frame.css"></head><body><div class="phone"><div class="screen">
+  <div class="island"></div>
+  <div class="status"><span>21:52</span><span class="r">●●● 5G <span class="bat"></span></span></div>
+
+  <div class="hd">
+    <div><div class="d">Lundi 28 sept</div><h2>Bienvenue, Nora.</h2></div>
+    <div class="avatar ini">NO</div>
+  </div>
+
+  <div class="empty">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 13l2.5-8h11L20 13v6H4z"/><path d="M4 13h5l1 2h4l1-2h5"/></svg></div>
+    <div class="k">Ta boîte · vide</div>
+    <h3>Personne n'attend encore de retour.</h3>
+    <p>Quand une élève t'enverra sa vidéo, elle arrivera ici, avec l'heure de ta promesse&nbsp;: <b>48 h</b>.</p>
+    <div class="slot"><div class="ini"></div><div class="l"><i></i><i></i></div><span>ta première vidéo</span></div>
+  </div>
+
+  <div class="go">
+    <div class="big primary"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.3-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M19 8v6M16 11h6"/></svg><div><b>Inviter mes élèves</b><small>Un message WhatsApp, un QR en cours</small></div><span class="ar">›</span></div>
+    <div class="big ghost"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2.5"/><path d="M16 10.5l5-3v9l-5-3"/></svg><div><b>Ajouter ma première leçon</b><small>Sur une démo de Dario, ou filmée par toi</small></div><span class="ar">›</span></div>
+  </div>
+
+  <div class="ready">Ton cours est ouvert&nbsp;: <b>optimalflow.fr/nora</b><br>Salsa fusion · les bases · délai 48 h · pilote</div>
+
+  <div class="tabbar glass">
+    <div class="t on"><span class="pill"><svg viewBox="0 0 24 24"><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/><circle cx="12" cy="12" r="5"/></svg></span>Aujourd'hui</div>
+    <div class="t" style="position:relative"><svg viewBox="0 0 24 24"><path d="M4 13l2.5-8h11L20 13v6H4z"/><path d="M4 13h5l1 2h4l1-2h5"/></svg>Boîte</div>
+    <div class="t"><span style="width:52px;height:52px;margin-top:-30px;border-radius:50%;background:var(--ref);display:grid;place-items:center;box-shadow:0 8px 24px -6px rgba(0,245,212,.6)"><svg viewBox="0 0 24 24" style="stroke:#00211C;width:24px;height:24px"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></span>Corriger</div>
+    <div class="t"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.300-5.500 6.500-5.500s5.700 1.900 6.500 5.500"/><path d="M16 4.500a3.500 3.500 0 010 7M18 14.800c1.900.7 3.100 2.400 3.500 5.200"/></svg>Élèves</div>
+    <div class="t"><svg viewBox="0 0 24 24"><path d="M4 4h4v16H4zM10 4h4v16h-4z"/><path d="M16 5l3.500-1 2.500 15.500-3.500 1z"/></svg>Mon cours</div>
+  </div>
+  <div class="home-ind"></div>
+</div></div><script src="flows.js"></script><script src="frame.js"></script></body></html>

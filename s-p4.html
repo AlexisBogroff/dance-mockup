@@ -1,0 +1,104 @@
+<!doctype html><html lang="fr" class="proto" data-state="p4"><head><meta name="viewport" content="width=390,user-scalable=no"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="dance.css">
+<style>
+.dim { position: absolute; inset: 0; background: #000; }
+.sheet { position: absolute; left: 0; right: 0; top: 56px; bottom: 0; border-radius: 30px 30px 0 0; background: #0E0E13; border-top: 1px solid rgba(255,255,255,.1); }
+.grab { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 38px; height: 5px; border-radius: 3px; background: rgba(255,255,255,.25); }
+.mh { position: absolute; top: 24px; left: 20px; right: 16px; display: flex; align-items: flex-start; }
+.mh h2 { font: 800 26px/1.08 -apple-system, system-ui, sans-serif; letter-spacing: -.03em; }
+.mh p { font: 500 13.5px/1.4 -apple-system, system-ui, sans-serif; color: var(--t2); margin-top: 5px; }
+.mh p b { color: var(--t1); font-weight: 650; }
+.mh .x { margin-left: auto; width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,.08); display: grid; place-items: center; font: 500 15px -apple-system, system-ui, sans-serif; color: var(--t2); flex: none; }
+.cnt { position: absolute; top: 96px; left: 20px; right: 20px; display: flex; align-items: center; gap: 10px; font: 550 13px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.cnt b { color: #fff; font-weight: 700; }
+.stack { display: flex; }
+.stack .avatar { width: 26px; height: 26px; font-size: 9.5px; margin-left: -7px; box-shadow: 0 0 0 2px #0E0E13, inset 0 0 0 1px rgba(255,255,255,.14); }
+.stack .avatar:first-child { margin-left: 0; }
+.sec { position: absolute; left: 12px; right: 12px; border-radius: 24px; background: var(--s1); border: 1px solid var(--line); padding: 13px 14px; }
+.sec h4 { font: 650 10.5px ui-monospace, Menlo, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--t2); display: flex; align-items: center; margin-bottom: 10px; }
+.sec h4 em { margin-left: auto; font-style: normal; letter-spacing: 0; text-transform: none; font: 600 12px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.wa { top: 138px; }
+.grp { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.grp .gi { width: 34px; height: 34px; border-radius: 50%; background: #2A2A33; display: grid; place-items: center; font: 700 12px ui-rounded, -apple-system, system-ui, sans-serif; color: #fff; }
+.grp b { display: block; font: 700 14px -apple-system, system-ui, sans-serif; }
+.grp small { font: 500 11.5px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.grp .chip { margin-left: auto; height: 28px; font-size: 12px; }
+.thread { border-radius: 16px; padding: 10px; background: #08080B; background-image: radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px); background-size: 12px 12px; }
+.bub { margin-left: auto; width: 92%; border-radius: 16px 16px 4px 16px; background: #22222A; padding: 10px 12px 7px; font: 500 13.5px/1.42 -apple-system, system-ui, sans-serif; color: #EDEDF2; }
+.bub .lk { text-decoration: underline; text-underline-offset: 2px; font-weight: 650; }
+.card { display: flex; gap: 9px; align-items: center; margin-top: 8px; padding: 6px; border-radius: 11px; background: rgba(0,0,0,.35); }
+.card .th { width: 50px; height: 50px; border-radius: 8px; flex: none; position: relative; overflow: hidden; background: #2a1d17; box-shadow: inset 0 0 0 2px var(--ref); }
+.card .th .art { left: -46px; top: -6px; width: 150px; height: 100px; }
+.card b { display: block; font: 700 12.5px -apple-system, system-ui, sans-serif; }
+.card small { display: block; font: 500 11.5px/1.35 -apple-system, system-ui, sans-serif; color: var(--t2); }
+.vo { display: flex; align-items: center; gap: 8px; margin-top: 7px; margin-left: auto; width: 92%; border-radius: 16px 16px 4px 16px; background: #22222A; padding: 6px 10px 6px 6px; }
+.vo .voice { flex: 1; padding: 0; gap: 8px; }
+.vo .voice .play { width: 30px; height: 30px; }
+.vo .voice .wave { height: 22px; }
+.bub .t, .vo .t { text-align: right; font: 500 10px -apple-system, system-ui, sans-serif; color: var(--t2); margin-top: 3px; }
+.acts { display: flex; gap: 8px; margin-top: 11px; }
+.acts .btn { height: 50px; font-size: 15px; padding: 0 16px; white-space: nowrap; }
+.acts .btn.primary { flex: 1; }
+.acts .btn.rec { width: 50px; padding: 0; background: var(--ref-a); }
+.acts .btn.rec svg { width: 21px; height: 21px; fill: none; stroke: var(--ref); stroke-width: 2; stroke-linecap: round; }
+.qrs { top: 512px; }
+.lrow { display: flex; align-items: center; gap: 8px; margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--line); }
+.lrow .u { font: 650 13px ui-monospace, Menlo, monospace; }
+.lrow .btn { margin-left: auto; height: 36px; font-size: 13px; padding: 0 14px; }
+.row2 { position: absolute; left: 12px; right: 12px; top: 614px; display: flex; gap: 8px; }
+.row2 .sec { position: relative; left: auto; right: auto; flex: 1; padding: 12px; }
+.qr { width: 92px; height: 92px; border-radius: 10px; background: #fff; padding: 6px; position: relative; }
+.qr svg { width: 100%; height: 100%; display: block; }
+.qbox { display: flex; gap: 11px; align-items: center; }
+.qbox b { display: block; font: 700 14px/1.2 -apple-system, system-ui, sans-serif; }
+.qbox small { display: block; font: 500 11.5px/1.35 -apple-system, system-ui, sans-serif; color: var(--t2); margin: 3px 0 8px; }
+.qbox .btn { height: 34px; font-size: 13px; padding: 0 12px; }
+.lnk b { display: block; font: 700 14px -apple-system, system-ui, sans-serif; }
+.lnk small { display: block; font: 500 11.5px/1.35 -apple-system, system-ui, sans-serif; color: var(--t2); margin: 3px 0 8px; }
+.lnk .u { font: 650 12px ui-monospace, Menlo, monospace; color: var(--t1); margin-bottom: 9px; }
+.lnk .btn { height: 34px; font-size: 13px; padding: 0 12px; width: 100%; }
+</style><link rel="stylesheet" href="proto-frame.css"></head><body><div class="phone"><div class="screen">
+  <div class="island"></div>
+  <div class="status"><span>17:12</span><span class="r">●●● 5G <span class="bat"></span></span></div>
+  <div class="dim"></div>
+  <div class="sheet">
+    <div class="grab"></div>
+    <div class="mh">
+      <div><h2>Inviter tes élèves</h2><p>Ils arrivent chez toi, pour suivre <b>ton cours</b>.</p></div>
+      <div class="x">✕</div>
+    </div>
+    <div class="cnt"><div class="stack"><div class="avatar ini stu">IN</div><div class="avatar ini stu">LI</div><div class="avatar ini stu">SA</div></div><span><b>14 élèves</b> dans l'app pour l'instant</span></div>
+
+    <div class="sec wa">
+      <h4>WhatsApp · groupe «&nbsp;Cours du jeudi&nbsp;»<em>Changer</em></h4>
+      <div class="thread">
+        <div class="bub">Coucou la team du jeudi ! Filmez-vous entre deux cours, je vous réponds à la voix. On en parle au prochain cours pour le prix. L'app&nbsp;: <span class="lk">optimalflow.fr/nora</span>
+          <div class="card"><div class="shot th"><div class="art"><img src="img/street.jpg"></div></div><div><b>Nora Fusion · salsa fusion</b><small>retour sous 48 h</small></div></div>
+          <div class="t">Nora · 17:12</div></div>
+        <div class="vo"><div class="voice"><div class="play"></div><div class="wave" data-n="30" data-seed="9" data-h="16"></div><span class="dur">0:09</span></div></div>
+      </div>
+      <div class="acts"><span class="btn primary">Ouvrir WhatsApp</span><span class="btn ghost">Copier</span><span class="btn rec"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></span></div>
+    </div>
+
+    <div class="sec qrs">
+      <h4>En cours, au mur</h4>
+      <div class="qbox"><div class="qr"><svg id="qr" viewBox="0 0 25 25" shape-rendering="crispEdges"></svg></div>
+        <div><b>Ton QR, à projeter</b><small>Ils le scannent avant le cours, téléphone en main.</small><span class="btn ghost">Projeter</span> <span class="btn ghost">Imprimer</span></div></div>
+      <div class="lrow"><span class="u">optimalflow.fr/nora</span><span class="btn ghost">Copier le lien</span></div>
+      <div class="lrow"><span class="u" style="font-family:-apple-system, system-ui, sans-serif;font-weight:600">Par e-mail, une liste ou un seul</span><span class="btn primary">Inscrire</span></div>
+    </div>
+  </div>
+  <div class="home-ind"></div>
+</div></div><script>try{
+document.querySelectorAll(".wave[data-n]").forEach(w=>{const n=+w.dataset.n,p=+(w.dataset.p||0),s=+(w.dataset.seed||1),h=+(w.dataset.h||22);for(let i=0;i<n;i++){const v=Math.abs(Math.sin(i*1.7+s)*Math.cos(i*.37+s*2));const b=document.createElement("i");b.style.height=(4+v*h)+"px";if(p)b.className=i/n<p?"past":"fut";w.appendChild(b);}});
+// Faux QR code : motif fixe + trois repères d'angle. C'est un dessin, il ne s'ouvre pas.
+const q=document.getElementById("qr"),N=25,ns="http://www.w3.org/2000/svg";
+const finder=(x,y)=>(x>=0&&x<7&&y>=0&&y<7);
+const isF=(x,y)=>finder(x,y)||finder(x-(N-7),y)||finder(x,y-(N-7));
+const fCell=(x,y)=>{const lx=x<7?x:x-(N-7),ly=y<7?y:y-(N-7);return lx===0||lx===6||ly===0||ly===6||(lx>=2&&lx<=4&&ly>=2&&ly<=4);};
+let r=7;
+for(let y=0;y<N;y++)for(let x=0;x<N;x++){let on;
+  if(isF(x,y))on=fCell(x,y);
+  else if((x===7||y===7)&&(x<8||x>N-9)&&(y<8||y>N-9))on=false;
+  else{r=(r*1103515245+12345)%2147483648;on=(r>>16)%100<47;}
+  if(on){const c=document.createElementNS(ns,"rect");c.setAttribute("x",x);c.setAttribute("y",y);c.setAttribute("width",1);c.setAttribute("height",1);c.setAttribute("fill","#07070A");q.appendChild(c);}}
+}catch(e){}</script><script src="flows.js"></script><script src="frame.js"></script></body></html>
