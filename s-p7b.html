@@ -46,7 +46,7 @@ html.phoneboard .board { gap: 26px; padding: 6px 30px; }
 .track .seg { position: absolute; top: 9px; height: 4px; border-radius: 2px; background: rgba(255,255,255,.22); }
 .track .seg.on { background: rgba(255,255,255,.6); }
 .track .pin { position: absolute; top: 1px; width: 20px; height: 20px; margin-left: -10px; border-radius: 50%; background: var(--ref); display: grid; place-items: center; box-shadow: 0 0 0 2px #0b0b10; }
-.track .pin svg { width: 11px; height: 11px; fill: none; stroke: #00211C; stroke-width: 2.6; stroke-linecap: round; }
+.track .pin svg { width: 11px; height: 11px; fill: none; stroke: #121418; stroke-width: 2.6; stroke-linecap: round; }
 .track .pin.draw { background: #0b0b10; border: 2px solid var(--ref); }
 .track .pin.draw svg { stroke: var(--ref); }
 .track .ph { position: absolute; top: -3px; bottom: -3px; width: 2px; margin-left: -1px; background: #fff; border-radius: 1px; }
@@ -54,9 +54,9 @@ html.phoneboard .board { gap: 26px; padding: 6px 30px; }
 .ruler .legend8 { margin-top: 15px; }
 
 /* enregistrement en cours */
-.rec { position: absolute; left: 12px; right: 12px; z-index: 30; border-radius: 18px; padding: 10px 13px 11px; background: rgba(0,245,212,.1); border: 1px solid rgba(0,245,212,.4); }
+.rec { position: absolute; left: 12px; right: 12px; z-index: 30; border-radius: 18px; padding: 10px 13px 11px; background: rgba(255,128,8,.1); border: 1px solid rgba(255,128,8,.4); }
 .rec .r { display: flex; align-items: center; gap: 9px; font: 700 12px ui-monospace, Menlo, monospace; color: var(--ref); white-space: nowrap; }
-.rec .r::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--ref); box-shadow: 0 0 0 4px rgba(0,245,212,.25); flex: none; }
+.rec .r::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--ref); box-shadow: 0 0 0 4px rgba(255,128,8,.25); flex: none; }
 .rec .wave { flex: 1; display: flex; align-items: center; gap: 2px; height: 22px; overflow: hidden; }
 .rec .wave i { display: block; width: 3px; border-radius: 2px; flex: none; }
 .rec .wave i.past { background: var(--ref); } .rec .wave i.fut { background: rgba(255,255,255,.14); }
@@ -67,9 +67,9 @@ html.phoneboard .board { gap: 26px; padding: 6px 30px; }
 .hold { position: absolute; left: 12px; right: 12px; z-index: 30; display: flex; gap: 10px; }
 .hold .draw { width: 64px; height: 64px; border-radius: 32px; display: grid; place-items: center; flex: none; background: rgba(255,255,255,.1); font: 600 10.5px -apple-system, system-ui, sans-serif; color: #fff; }
 .hold .draw svg { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; display: block; margin: 0 auto 1px; }
-.hold .mic { flex: 1; height: 64px; border-radius: 32px; background: var(--ref); color: #00211C; display: flex; align-items: center; gap: 12px; padding: 0 18px 0 8px;
-  box-shadow: 0 0 0 7px rgba(0,245,212,.16), 0 0 34px rgba(0,245,212,.45); }
-.hold .mic .ic { width: 48px; height: 48px; border-radius: 50%; background: #00211C; display: grid; place-items: center; flex: none; }
+.hold .mic { flex: 1; height: 64px; border-radius: 32px; background: var(--ref); color: #121418; display: flex; align-items: center; gap: 12px; padding: 0 18px 0 8px;
+  box-shadow: 0 0 0 7px rgba(255,128,8,.16), 0 0 34px rgba(255,128,8,.45); }
+.hold .mic .ic { width: 48px; height: 48px; border-radius: 50%; background: #121418; display: grid; place-items: center; flex: none; }
 .hold .mic .ic svg { width: 24px; height: 24px; fill: none; stroke: var(--ref); stroke-width: 2.1; stroke-linecap: round; }
 .hold .mic b { font: 750 15.5px -apple-system, system-ui, sans-serif; display: block; }
 .hold .mic small { font: 600 11.5px -apple-system, system-ui, sans-serif; opacity: .78; }
@@ -77,10 +77,10 @@ html.phoneboard .board { gap: 26px; padding: 6px 30px; }
 /* écran 2 : relire */
 .items { position: absolute; left: 12px; right: 12px; z-index: 30; }
 .items h5, .acts h5 { font: 650 10.5px ui-monospace, Menlo, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--t2); margin: 0 4px 6px; display: flex; justify-content: space-between; }
-.it { display: flex; align-items: flex-start; gap: 9px; padding: 8px 10px 8px 8px; border-radius: 16px; background: rgba(0,245,212,.07); margin-bottom: 5px; }
+.it { display: flex; align-items: flex-start; gap: 9px; padding: 8px 10px 8px 8px; border-radius: 16px; background: rgba(255,128,8,.07); margin-bottom: 5px; }
 .it .at { font: 700 11px ui-monospace, Menlo, monospace; color: var(--ref); width: 34px; flex: none; padding-top: 9px; }
 .it .play { width: 30px; height: 30px; border-radius: 50%; background: var(--ref); display: grid; place-items: center; flex: none; }
-.it .play::after { content: ""; border-left: 10px solid #00211C; border-top: 6px solid transparent; border-bottom: 6px solid transparent; margin-left: 3px; }
+.it .play::after { content: ""; border-left: 10px solid #121418; border-top: 6px solid transparent; border-bottom: 6px solid transparent; margin-left: 3px; }
 .it .pen { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--ref); display: grid; place-items: center; flex: none; }
 .it .pen svg { width: 14px; height: 14px; fill: none; stroke: var(--ref); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .it .tx { flex: 1; font: 500 12.5px/1.32 -apple-system, system-ui, sans-serif; color: #fff; min-width: 0; }
@@ -116,8 +116,8 @@ html.phoneboard .board { gap: 26px; padding: 6px 30px; }
       <div class="seg" style="left:30%;width:10.5%"></div><div class="seg" style="left:42%;width:10.5%"></div>
       <div class="seg on" style="left:54%;width:10.5%"></div><div class="seg" style="left:66%;width:10.5%"></div>
       <div class="seg" style="left:78%;width:10.5%"></div><div class="seg" style="left:90%;width:10%"></div>
-      <div class="pin" style="left:23.5%"><svg viewBox="0 0 12 12"><rect x="4.4" y="1.2" width="3.2" height="5.6" rx="1.6" fill="#00211C" stroke="none"/><path d="M2.8 5.6a3.2 3.2 0 006.4 0M6 8.8v1.8"/></svg></div>
-      <div class="pin" style="left:61.8%"><svg viewBox="0 0 12 12"><rect x="4.4" y="1.2" width="3.2" height="5.6" rx="1.6" fill="#00211C" stroke="none"/><path d="M2.8 5.6a3.2 3.2 0 006.4 0M6 8.8v1.8"/></svg></div>
+      <div class="pin" style="left:23.5%"><svg viewBox="0 0 12 12"><rect x="4.4" y="1.2" width="3.2" height="5.6" rx="1.6" fill="#121418" stroke="none"/><path d="M2.8 5.6a3.2 3.2 0 006.4 0M6 8.8v1.8"/></svg></div>
+      <div class="pin" style="left:61.8%"><svg viewBox="0 0 12 12"><rect x="4.4" y="1.2" width="3.2" height="5.6" rx="1.6" fill="#121418" stroke="none"/><path d="M2.8 5.6a3.2 3.2 0 006.4 0M6 8.8v1.8"/></svg></div>
       <div class="ph" style="left:61.8%"></div>
     </div>
   </div>
@@ -145,7 +145,7 @@ html.phoneboard .board { gap: 26px; padding: 6px 30px; }
   <div class="tabbar glass">
     <div class="t"><svg viewBox="0 0 24 24"><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/><circle cx="12" cy="12" r="5"/></svg>Aujourd'hui</div>
     <div class="t" style="position:relative"><svg viewBox="0 0 24 24"><path d="M4 13l2.5-8h11L20 13v6H4z"/><path d="M4 13h5l1 2h4l1-2h5"/></svg>Boîte<span style="position:absolute;top:-4px;right:2px;min-width:16px;height:16px;border-radius:8px;background:#fff;color:#000;font:800 10px -apple-system, system-ui, sans-serif;display:grid;place-items:center;padding:0 4px">3</span></div>
-    <div class="t on"><span style="width:52px;height:52px;margin-top:-30px;border-radius:50%;background:var(--ref);display:grid;place-items:center;box-shadow:0 8px 24px -6px rgba(0,245,212,.6)"><svg viewBox="0 0 24 24" style="stroke:#00211C;width:24px;height:24px"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></span>Corriger</div>
+    <div class="t on"><span style="width:52px;height:52px;margin-top:-30px;border-radius:50%;background:var(--ref);display:grid;place-items:center;box-shadow:0 8px 24px -6px rgba(255,128,8,.6)"><svg viewBox="0 0 24 24" style="stroke:#121418;width:24px;height:24px"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></span>Corriger</div>
     <div class="t"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.300-5.500 6.500-5.500s5.700 1.900 6.500 5.500"/><path d="M16 4.500a3.500 3.500 0 010 7M18 14.800c1.900.7 3.100 2.400 3.500 5.200"/></svg>Élèves</div>
     <div class="t"><svg viewBox="0 0 24 24"><path d="M4 4h4v16H4zM10 4h4v16h-4z"/><path d="M16 5l3.500-1 2.500 15.500-3.500 1z"/></svg>Mon cours</div>
   </div>

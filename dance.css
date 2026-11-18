@@ -1,7 +1,7 @@
 /* ============================================================
    « Dance mockup » — système de design du parcours danse (OPT-1117 v4)
    Règles (voir BIBLE.md) :
-   1. Cyan = la prof (vidéo, voix, retours). Rose = l'élève (sa vidéo, son corps). Rien d'autre.
+   1. Orange du logo = le prof (vidéo, voix, retours). Rose = l'élève (sa vidéo, son corps). Rien d'autre.
    2. Action principale = blanc. Un état = une forme + un libellé (.state), jamais la couleur seule.
    3. La voix d'abord : un retour est un vocal posé sur un moment de la vidéo.
    4. Aucune IA en V1 : seulement la transcription et les résumés, marqués comme tels.
@@ -16,8 +16,8 @@
   --t1: #F5F5F7;
   --t2: #A1A1AA;
   --t3: #63636E;
-  --ref: #00F5D4;         /* le prof, la référence */
-  --ref-a: rgba(0,245,212,.16);
+  --ref: #FF8008;         /* le prof, la référence */
+  --ref-a: rgba(255,128,8,.16);
   --me: #FF3D8B;          /* moi, l'élève */
   --me-a: rgba(255,61,139,.16);
   --both: #FFFFFF;        /* accord */
@@ -62,7 +62,7 @@ html.deskboard .notes { max-width: 380px; }
 .notes .num { font: 600 13px ui-monospace, Menlo, monospace, Menlo, monospace; letter-spacing: .12em; color: #847D93; text-transform: uppercase; }
 .notes .num .lane { display: inline-block; padding: 3px 8px; border-radius: 6px; margin-right: 8px; color: #fff; letter-spacing: .08em; }
 .notes .num .lane.b2c { background: var(--me); }
-.notes .num .lane.b2b { background: #0A8F7E; }
+.notes .num .lane.b2b { background: #A5570E; }
 .notes h1 { font: 700 44px/1.02 "Avenir Next", -apple-system, system-ui, sans-serif, sans-serif; letter-spacing: -.02em; margin: 10px 0 8px; }
 html.deskboard .notes h1 { font-size: 36px; }
 .notes .screenname { font: 500 16.5px/1.4 -apple-system, system-ui, sans-serif; color: #5B5566; margin-bottom: 18px; }
@@ -96,7 +96,7 @@ html.deskboard .notes li { font-size: 14px; }
 .shot.mirror .art { transform: scaleX(-1); }
 .shot .veil { position: absolute; inset: 0; pointer-events: none; }
 .bone { fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.ref-bone { stroke: var(--ref); stroke-width: 9; filter: drop-shadow(0 0 10px rgba(0,245,212,.7)); }
+.ref-bone { stroke: var(--ref); stroke-width: 9; filter: drop-shadow(0 0 10px rgba(255,128,8,.7)); }
 .me-bone { stroke: var(--me); stroke-width: 9; filter: drop-shadow(0 0 10px rgba(255,61,139,.7)); }
 .ghost-bone { stroke: var(--ref); stroke-width: 26; opacity: .35; filter: blur(2px); }
 .ai-mark { fill: none; stroke: var(--ai); stroke-width: 6; stroke-dasharray: 14 12; }
@@ -126,16 +126,16 @@ html.deskboard .notes li { font-size: 14px; }
 /* Boutons */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 50px; padding: 0 22px; border-radius: 99px; font: 700 16px -apple-system, system-ui, sans-serif; border: 0; }
 .btn.primary { background: #fff; color: #000; }
-.btn.ref { background: var(--ref); color: #00211C; }
+.btn.ref { background: var(--ref); color: #121418; }
 .btn.me { background: var(--me); color: #fff; }
 .btn.ghost { background: rgba(255,255,255,.1); color: #fff; }
 
 /* Note vocale */
 .voice { display: flex; align-items: center; gap: 10px; padding: 9px 12px 9px 9px; border-radius: 22px; }
 .voice .play { width: 34px; height: 34px; border-radius: 50%; background: var(--ref); display: grid; place-items: center; flex: none; }
-.voice .play::after { content: ""; border-left: 11px solid #00211C; border-top: 7px solid transparent; border-bottom: 7px solid transparent; margin-left: 3px; }
+.voice .play::after { content: ""; border-left: 11px solid #121418; border-top: 7px solid transparent; border-bottom: 7px solid transparent; margin-left: 3px; }
 .voice .wave { flex: 1; display: flex; align-items: center; gap: 2px; height: 28px; }
-.voice .wave i { display: block; width: 3px; border-radius: 2px; background: rgba(0,245,212,.9); }
+.voice .wave i { display: block; width: 3px; border-radius: 2px; background: rgba(255,128,8,.9); }
 .voice .wave i.past { background: var(--ref); } .voice .wave i.fut { background: rgba(255,255,255,.3); }
 .voice .dur { font: 600 12px ui-monospace, Menlo, monospace; color: var(--t2); }
 .avatar { border-radius: 50%; background-size: cover; background-position: center; flex: none; }
@@ -161,7 +161,7 @@ html.deskboard .notes li { font-size: 14px; }
 .side .it { display: flex; align-items: center; gap: 10px; height: 32px; padding: 0 10px; border-radius: 8px; font: 550 13px -apple-system, system-ui, sans-serif; color: var(--t2); }
 .side .it.on { background: rgba(255,255,255,.07); color: #fff; }
 .side .it .k { margin-left: auto; font: 600 10.5px ui-monospace, Menlo, monospace; color: var(--t3); }
-.side .it .n { margin-left: auto; font: 700 11px ui-monospace, Menlo, monospace; color: #00211C; background: var(--ref); padding: 1px 6px; border-radius: 6px; }
+.side .it .n { margin-left: auto; font: 700 11px ui-monospace, Menlo, monospace; color: #121418; background: var(--ref); padding: 1px 6px; border-radius: 6px; }
 .side .sec { font: 650 10.5px ui-monospace, Menlo, monospace; letter-spacing: .1em; color: var(--t3); text-transform: uppercase; padding: 16px 10px 6px; }
 .kbd { display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 5px; font: 650 11px ui-monospace, Menlo, monospace; color: var(--t2); background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); }
 
