@@ -1,4 +1,4 @@
-// Prototype « Sur le 8 » minimum : qui mène où.
+// Prototype « dance-mockup » minimum : qui mène où.
 // hot : texte visible -> action. Action : un identifiant d'état, "back", "toggle", "radio",
 // "toast:texte", "a>b" (l'un puis l'autre), "cond:drapeau:si:sinon", ou un objet de croisement
 // { x, l, m } (interstitiel puis état x), avec des variantes { prof:{…}, eleve:{…} } pour les tours d'un seul côté.
@@ -13,7 +13,7 @@ const TABS_PROF = {
 };
 const TABS_ELEVE = {
   "Apprendre": "e3",
-  "Filmer": "e5a",
+  "Filmer": "e5c",
   "Retours": "cond:fb:e11b:cond:sent:e11a:toast:Pas encore de vidéo envoyée. Ta vidéo et la voix de Mike arriveront ici.",
   "Moi": "e12",
 };
@@ -38,7 +38,10 @@ window.STATES = [
   ["e4", "b2c-12-lecon", 0, "E4 · La leçon"],
   ["e5a", "b2c-13-filmer", 0, "E5 · Me filmer"],
   ["e5b", "b2c-13-filmer", 1, "E5 · « Go » entendu"],
-  ["e6", "b2c-14-envoyer", 0, "E6 · Envoyer"],
+  ["e5c", "b2c-13-filmer", 2, "E5 · Filmer (onglet, vidéo libre)"],
+  ["e5d", "b2c-13-filmer", 3, "E5 · Filmer, « Go » entendu"],
+  ["e6", "b2c-14-envoyer", 0, "E6 · Ta vidéo"],
+  ["e14", "b2c-15-a-qui", 0, "E14 · À quel prof l'envoyer"],
   ["e7", "b2c-18-notification", 0, "E7 · Le retour arrive"],
   ["e8", "b2c-19-retour", 0, "E8 · Le retour"],
   ["e9", "b2c-07-trouver", 0, "E9 · Trouver un prof"],
@@ -70,11 +73,15 @@ window.FLOWS = {
   e2: { hot: { "Recevoir mon code": "toast:Code reçu par e-mail ✓>e3", "Apple": "e3", "Google": "e3", "‹": "back", "conditions": "toast:Les conditions d'utilisation.", "politique de confidentialité": "toast:La politique de confidentialité." } },
   e3: { hot: { "Rumba Pop": "e4", "~5Rumba Pop": "e4", "Compter la salsa": "toast:Même écran de leçon, sur une autre vidéo de Mike.", "Mambo": "toast:Même écran de leçon, sur une autre vidéo de Mike.", "Le Slide": "toast:Même écran de leçon, sur la démo de Frédérico.", "Slide hip-hop": "toast:Même écran de leçon, sur une autre vidéo de Mike.", "Musicalité : entendre le 1": "toast:Même écran de leçon, sur une autre vidéo de Mike.", "▶ Vocal de Mike": "toast:▶ « Ton genou est là. Maintenant, on ajoute le pop. »", ...TABS_ELEVE } },
   e4: { hot: { "Regarder la leçon": "toggle", "Me filmer sur Rumba Pop": "e5a", "‹": "back", "Vitesse 0,5×": "toggle", "Boucle": "toggle", "⇋ Miroir": "toggle", "Compter la salsa ›": "toast:Ouvre la leçon « Compter la salsa ».", "Démo": "radio", "Décomposé, lentement": "radio", "En musique": "radio" } },
-  e5a: { any: "e5b", hot: { "×": "back", "Dis « Go »": "e5b" } },
+  e5a: { unset: "free", any: "e5b", hot: { "×": "back", "Dis « Go »": "e5b" } },
   e5b: { auto: [2600, "e6"], any: "e6", hot: { "×": "back" } },
-  e6: { hot: {
+  e5c: { set: "free", any: "e5d", hot: { "×": "back", "Dis « Go »": "e5d" } },
+  e5d: { auto: [2600, "e6"], any: "e6", hot: { "×": "back" } },
+  e6: { hot: { "Choisir le prof": "e14", "Garder pour moi": "toast:Gardée dans Moi › Mes vidéos. Tu pourras l'envoyer plus tard.>e12", "↺": "cond:free:e5c:e5a", "‹": "cond:free:e5c:e5a" } },
+  e14: { hot: {
     "Envoyer à Mike": { x: "p6", l: "Côté prof · deux jours plus tard", m: "Mer. 18 nov, 18:30. La vidéo d'Alexis est arrivée chez Mike, avec l'heure de sa promesse.", eleve: { x: "e7", l: "Deux jours plus tard", m: "Mer. 18 nov, 18:41. Le téléphone d'Alexis est posé, écran verrouillé." } },
-    "↺": "e5a", "‹": "back" } },
+    "Nora": "toast:Envoyer à Nora : même envoi, réponse sous 72 h.",
+    "Trouver un autre prof": "e9", "‹": "back" } },
   e7: { any: "e8" },
   e8: { set: "fb", hot: { "Revoir à 0:08": "toast:▶ La vidéo repart à 0:08, avec le vocal de Mike.", "‹": "e11b" } },
   p8a: { hot: { "＋ Nouvelle leçon": "p8b", "Voir en élève": "e3", "Inviter des élèves": "p4", "Réordonner": "toast:Maintiens une leçon et fais-la glisser.",

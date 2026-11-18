@@ -2,10 +2,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Sur le 8">
+<meta name="apple-mobile-web-app-title" content="Dance mockup">
 <meta name="theme-color" content="#07070A">
 <link rel="apple-touch-icon" href="icon.png">
-<title>Sur le 8 · prototype minimum</title>
+<title>Dance mockup · prototype minimum</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 html, body { height: 100%; background: #07070A; color: #F5F5F7; font: 15px/1.4 -apple-system, system-ui, sans-serif; overflow: hidden; overscroll-behavior: none; touch-action: manipulation; -webkit-user-select: none; user-select: none; }
@@ -53,20 +53,20 @@ body.wide #side { display: block; }
 #side a.cur { background: rgba(255,255,255,.1); color: #fff; }
 #side .keys { margin-top: 18px; font-size: 12px; color: #63636E; line-height: 1.6; }
 </style></head><body>
-<div id="side"><h1>Sur le 8 · minimum</h1><div class="sub" id="count">Prototype cliquable</div><div id="list"></div>
+<div id="side"><h1>Dance mockup · minimum</h1><div class="sub" id="count">Prototype cliquable</div><div id="list"></div>
 <div class="keys">Clic : comme dans l'app · clic hors zone : les zones s'allument · appui long ou touche M : le menu · ← : écran précédent</div></div>
 <div id="stage">
   <div id="toast"></div>
   <div id="cross" class="over"><div class="l"></div><div class="m"></div><div class="h">Touche pour continuer</div></div>
   <div id="menu" class="over"><div class="sheet"></div></div>
   <div id="help" class="over"><div class="card">
-    <h2>Sur le 8,<br>la version minimale,<br>complète.</h2>
+    <h2>Dance mockup,<br>la version minimale,<br>complète.</h2>
     <p><b>Touche comme dans l'app.</b> Les boutons, les onglets et les lignes mènent à l'écran suivant.</p>
     <p><b>Touche ailleurs</b> : les zones actives s'allument en bleu.</p>
     <p><b>Appui long</b> n'importe où : le menu (écran précédent, recommencer, côté prof ou élève, aller à un écran).</p>
     <p>Le tour complet passe de Mike, le prof, à Alexis, l'élève, et revient, comme dans la vraie boucle.</p>
     <button id="go">Commencer le tour</button>
-    <div class="tip" id="tip">Pour le plein écran sur iPhone : Partager → « Sur l'écran d'accueil », puis ouvre « Sur le 8 » depuis l'icône.</div>
+    <div class="tip" id="tip">Pour le plein écran sur iPhone : Partager → « Sur l'écran d'accueil », puis ouvre « Dance mockup » depuis l'icône.</div>
   </div></div>
 </div>
 <script src="flows.js"></script>
@@ -119,6 +119,7 @@ function show(id, dir = 1) {
   cur = id; location.replace("#" + id);
   const F = FLOWS[id] || {};
   if (F.set) flags[F.set] = true;
+  if (F.unset) delete flags[F.unset];
   if (F.auto) autoT = setTimeout(() => cur === id && run(F.auto[1]), F.auto[0]);
   document.querySelectorAll("#list a").forEach((a) => a.classList.toggle("cur", a.dataset.id === id));
 }
