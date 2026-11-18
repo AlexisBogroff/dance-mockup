@@ -18,9 +18,9 @@
   --t3: #63636E;
   --ref: #FF8008;         /* le prof, la référence */
   --ref-a: rgba(255,128,8,.16);
-  --me: #FF3D8B;          /* moi, l'élève */
-  --me-a: rgba(255,61,139,.16);
-  --both: #FFFFFF;        /* accord */
+  --me: #F5F5F2;          /* moi, l'élève */
+  --me-a: rgba(245,245,242,.16);
+  --both: #FFC48A;        /* accord */
   --ai: rgba(255,255,255,.75); /* IA = pointillés blancs */
 }
 
@@ -97,7 +97,7 @@ html.deskboard .notes li { font-size: 14px; }
 .shot .veil { position: absolute; inset: 0; pointer-events: none; }
 .bone { fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .ref-bone { stroke: var(--ref); stroke-width: 9; filter: drop-shadow(0 0 10px rgba(255,128,8,.7)); }
-.me-bone { stroke: var(--me); stroke-width: 9; filter: drop-shadow(0 0 10px rgba(255,61,139,.7)); }
+.me-bone { stroke: var(--me); stroke-width: 9; filter: drop-shadow(0 0 10px rgba(245,245,242,.7)); }
 .ghost-bone { stroke: var(--ref); stroke-width: 26; opacity: .35; filter: blur(2px); }
 .ai-mark { fill: none; stroke: var(--ai); stroke-width: 6; stroke-dasharray: 14 12; }
 
@@ -108,7 +108,7 @@ html.deskboard .notes li { font-size: 14px; }
 .eight .c.p { flex: 1.3; background: transparent; border: 1.5px dashed rgba(255,255,255,.18); color: transparent; }
 .eight .c.ok { background: #fff; color: #000; }
 .eight .c.mid { background: rgba(255,255,255,.38); color: #000; }
-.eight .c.off { background: var(--me); color: #fff; }
+.eight .c.off { background: var(--me); color: #121418; }
 .eight .c.now { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--ref); }
 .eight .c.note::after { content: ""; position: absolute; top: -5px; right: -3px; width: 10px; height: 10px; border-radius: 50%; background: var(--ref); box-shadow: 0 0 0 2px var(--bg); }
 .eight.sm .c { height: 18px; border-radius: 5px; font-size: 9.5px; }
@@ -127,7 +127,7 @@ html.deskboard .notes li { font-size: 14px; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 50px; padding: 0 22px; border-radius: 99px; font: 700 16px -apple-system, system-ui, sans-serif; border: 0; }
 .btn.primary { background: #fff; color: #000; }
 .btn.ref { background: var(--ref); color: #121418; }
-.btn.me { background: var(--me); color: #fff; }
+.btn.me { background: var(--me); color: #121418; }
 .btn.ghost { background: rgba(255,255,255,.1); color: #fff; }
 
 /* Note vocale */
@@ -157,7 +157,7 @@ html.deskboard .notes li { font-size: 14px; }
 /* Barre latérale ordinateur (B2B) */
 .side { position: absolute; left: 0; top: 0; bottom: 0; width: 210px; background: #0C0C10; border-right: 1px solid var(--line); padding: 16px 12px; }
 .side .brand { display: flex; align-items: center; gap: 9px; font: 750 14px -apple-system, system-ui, sans-serif; padding: 2px 8px 18px; }
-.side .brand .logo { width: 22px; height: 22px; border-radius: 7px; background: conic-gradient(from 200deg, var(--ref), #fff, var(--me), var(--ref)); }
+.side .brand .logo { width: 22px; height: 22px; border-radius: 7px; background: conic-gradient(from 200deg, var(--ref), #FFC48A, var(--me), var(--ref)); }
 .side .it { display: flex; align-items: center; gap: 10px; height: 32px; padding: 0 10px; border-radius: 8px; font: 550 13px -apple-system, system-ui, sans-serif; color: var(--t2); }
 .side .it.on { background: rgba(255,255,255,.07); color: #fff; }
 .side .it .k { margin-left: auto; font: 600 10.5px ui-monospace, Menlo, monospace; color: var(--t3); }
