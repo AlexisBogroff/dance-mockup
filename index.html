@@ -64,7 +64,7 @@ body.wide #side { display: block; }
     <p><b>Touche comme dans l'app.</b> Les boutons, les onglets et les lignes mènent à l'écran suivant.</p>
     <p><b>Touche ailleurs</b> : les zones actives s'allument en bleu.</p>
     <p><b>Appui long</b> n'importe où : le menu (écran précédent, recommencer, côté prof ou élève, aller à un écran).</p>
-    <p>Le tour complet passe de Nora, la prof, à Inès, l'élève, et revient, comme dans la vraie boucle.</p>
+    <p>Le tour complet passe de Mike, le prof, à Alexis, l'élève, et revient, comme dans la vraie boucle.</p>
     <button id="go">Commencer le tour</button>
     <div class="tip" id="tip">Pour le plein écran sur iPhone : Partager → « Sur l'écran d'accueil », puis ouvre « Sur le 8 » depuis l'icône.</div>
   </div></div>
@@ -187,7 +187,7 @@ addEventListener("keydown", (e) => {
   if (e.key === "m" || e.key === "M" || e.key === "Escape") $("#menu").classList.contains("on") ? closeOver() : menu();
 });
 $("#count").textContent = `Prototype cliquable · ${new Set(STATES.map((s) => s[1])).size} écrans, ${STATES.length} états`;
-$("#list").innerHTML = `<h3>Prof · Nora</h3>${STATES.filter((s) => s[0][0] === "p").map((s) => `<a data-id="${s[0]}">${s[3]}</a>`).join("")}<h3>Élève · Inès</h3>${STATES.filter((s) => s[0][0] === "e").map((s) => `<a data-id="${s[0]}">${s[3]}</a>`).join("")}`;
+$("#list").innerHTML = `<h3>Prof · Mike</h3>${STATES.filter((s) => s[0][0] === "p").map((s) => `<a data-id="${s[0]}">${s[3]}</a>`).join("")}<h3>Élève · Alexis</h3>${STATES.filter((s) => s[0][0] === "e").map((s) => `<a data-id="${s[0]}">${s[3]}</a>`).join("")}`;
 $("#list").addEventListener("click", (e) => { const a = e.target.closest("a"); if (a) go(a.dataset.id); });
 $("#go").onclick = () => { localStorage.setItem("sl8-seen", "1"); closeOver(); };
 const h0 = location.hash.slice(1);

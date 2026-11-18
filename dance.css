@@ -190,3 +190,8 @@ html.deskboard .notes li { font-size: 14px; }
 /* Transcription / résumé automatiques */
 .auto { font: 500 10.5px -apple-system, system-ui, sans-serif; color: var(--t2); }
 .auto::before { content: "≋ "; }
+
+/* Vrais noms (OPT-1117, 18/11) : avatars en photo */
+.ph-mike, .ph-alexis { background-size: cover !important; background-position: center !important; color: transparent !important; text-shadow: none !important; }
+.ph-mike { background-image: url(img/av-mike.jpg) !important; }
+.ph-alexis { background-image: url(img/av-alexis.jpg) !important; }
