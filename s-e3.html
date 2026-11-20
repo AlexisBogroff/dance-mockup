@@ -1,100 +1,68 @@
-<!doctype html><html lang="fr" class="proto" data-state="e3"><head><meta name="viewport" content="width=390,user-scalable=no"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="dance.css">
+<!doctype html><html lang="fr" class="proto" data-state="e3"><head><meta name="viewport" content="width=390,user-scalable=no"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="dance.css"><link rel="stylesheet" href="lotb.css"><link rel="stylesheet" href="app.css">
 <style>
-.head { position: absolute; top: 58px; left: 20px; right: 20px; }
-.head h2 { font: 800 32px/1 -apple-system, system-ui, sans-serif; letter-spacing: -.03em; }
-.head .sub { margin-top: 5px; font: 500 12.5px -apple-system, system-ui, sans-serif; color: var(--t2); display: flex; align-items: center; gap: 6px; }
-.head .sub .avatar { width: 18px; height: 18px; font-size: 7.5px; background: var(--ref); color: #121418; }
-.head .sub b { color: #fff; font-weight: 650; }
-.next { position: absolute; top: 122px; left: 14px; right: 14px; height: 92px; border-radius: 22px; background: var(--s2); border: 1px solid var(--line); display: flex; gap: 12px; padding: 9px; align-items: center; }
-.next .th { position: relative; width: 66px; height: 74px; border-radius: 14px; overflow: hidden; flex: none; box-shadow: inset 0 0 0 2px var(--ref); }
-.next .th .art { left: -88px; top: -10px; width: 240px; height: 160px; }
-.next .th .nl { position: absolute; left: 4px; bottom: 4px; font: 800 8px ui-monospace, Menlo, monospace; letter-spacing: .06em; color: #121418; background: var(--ref); padding: 1px 4px; border-radius: 4px; z-index: 2; }
-.next .tx { flex: 1; min-width: 0; }
-.next .k { font: 650 11px -apple-system, system-ui, sans-serif; color: var(--ref); }
-.next b { display: block; font: 800 19px -apple-system, system-ui, sans-serif; letter-spacing: -.02em; margin: 2px 0 2px; }
-.next span { display: block; font: 500 11.5px/1.3 -apple-system, system-ui, sans-serif; color: var(--t2); }
-.next .go { width: 40px; height: 40px; border-radius: 50%; background: #fff; color: #000; display: grid; place-items: center; font: 700 18px -apple-system, system-ui, sans-serif; flex: none; margin-right: 4px; }
-.sec { position: absolute; left: 20px; right: 20px; font: 700 11.5px ui-monospace, Menlo, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--t2); display: flex; justify-content: space-between; align-items: baseline; }
-.sec a { letter-spacing: 0; text-transform: none; font: 550 11.5px -apple-system, system-ui, sans-serif; }
-.map { position: absolute; top: 246px; left: 14px; right: 14px; }
-.map::before { content: ""; position: absolute; left: 13px; top: 14px; bottom: 26px; width: 2px; background: rgba(255,255,255,.14); }
-.lv { position: relative; padding-left: 36px; margin-bottom: 7px; }
-.lv .node { position: absolute; left: 4px; top: 7px; width: 20px; height: 20px; border-radius: 50%; background: var(--bg); border: 2px solid rgba(255,255,255,.35); display: grid; place-items: center; font: 800 10px -apple-system, system-ui, sans-serif; color: #000; z-index: 2; }
-.lv.done .node { background: #fff; border-color: #fff; }
-.lv.cur .node { border-color: #fff; box-shadow: 0 0 0 4px rgba(255,255,255,.14); }
-.lv.cur .node::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #fff; }
-.lv .t { display: flex; align-items: baseline; gap: 8px; padding-top: 6px; }
-.lv .t b { font: 750 15px -apple-system, system-ui, sans-serif; }
-.lv .t span { font: 500 12px -apple-system, system-ui, sans-serif; color: var(--t2); }
-.lv .t .state { margin-left: auto; height: 22px; font-size: 11px; }
-.lv.later .t b { color: var(--t2); }
-.box { margin-top: 7px; border-radius: 18px; background: var(--s1); border: 1px solid var(--line); padding: 9px 11px 6px; }
-.meter { display: flex; gap: 3px; align-items: center; }
-.meter i { flex: 1; height: 5px; border-radius: 3px; background: rgba(255,255,255,.12); }
-.meter i.ok { background: #fff; }
-.meter em { font: 650 11.5px -apple-system, system-ui, sans-serif; font-style: normal; color: #fff; margin-left: 8px; white-space: nowrap; }
-.ls { margin-top: 6px; }
-.ls div { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-top: 1px solid var(--line); font: 600 13px -apple-system, system-ui, sans-serif; }
-.ls div:first-child { border-top: 0; }
-.ls .n { width: 16px; font: 700 11px ui-monospace, Menlo, monospace; color: var(--t2); }
-.ls .kind { height: 17px; font-size: 8.5px; padding: 0 5px; }
-.ls .r { margin-left: auto; font: 550 11.5px -apple-system, system-ui, sans-serif; color: var(--t2); white-space: nowrap; }
-.ls .r.ok { color: #fff; }
-.ls .r.ref { color: var(--ref); }
-.ls .more { color: var(--t2); font: 550 11.5px -apple-system, system-ui, sans-serif; justify-content: space-between; white-space: nowrap; }
-.defi { margin-top: 2px; border-radius: 18px; border: 1.5px solid #fff; padding: 9px 12px; background: linear-gradient(140deg, rgba(255,255,255,.12), rgba(255,255,255,.02)); }
-.defi .k { font: 700 10px ui-monospace, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--t2); }
-.defi b { display: block; font: 750 14.5px -apple-system, system-ui, sans-serif; margin-top: 2px; }
-.defi span { display: block; font: 500 11.5px/1.35 -apple-system, system-ui, sans-serif; color: var(--t2); margin-top: 2px; }
-.dico { position: absolute; top: 660px; left: 14px; right: 14px; height: 52px; border-radius: 18px; background: var(--s1); border: 1px solid var(--line); display: flex; align-items: center; gap: 10px; padding: 0 12px; }
-.dico .codes { display: flex; gap: 4px; flex: none; }
-.dico .codes span { font: 800 9.5px ui-monospace, Menlo, monospace; letter-spacing: .04em; padding: 3px 5px; border-radius: 5px; border: 1px solid rgba(255,255,255,.22); }
-.dico .tx { flex: 1; min-width: 0; }
-.dico .tx b { display: block; font: 700 13px -apple-system, system-ui, sans-serif; }
-.dico .tx span { display: block; font: 500 11px -apple-system, system-ui, sans-serif; color: var(--t2); }
-.dico .chev { color: var(--t2); font: 500 18px -apple-system, system-ui, sans-serif; }
 .tabbar svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tabbar .t { min-width: 56px; }
+.ttl small { display: block; font: 500 11.5px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.hero { position: absolute; left: 0; top: 0; width: 390px; overflow: hidden; background: #2a1d17; }
+.hero img { position: absolute; width: 100%; height: 100%; object-fit: cover; }
+.hero .veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,0) 30%, rgba(7,7,10,0) 55%, #07070A); }
+.big { font: 800 29px/1.08 -apple-system, system-ui, sans-serif; letter-spacing: -.03em; }
+.sub2 { font: 500 13px/1.4 -apple-system, system-ui, sans-serif; color: var(--t2); margin-top: 4px; }
+.sub2 b { color: var(--t1); font-weight: 650; }
+.kv { display: flex; justify-content: space-between; gap: 12px; padding: 10px 14px; border-top: 1px solid var(--line); font: 500 13px/1.35 -apple-system, system-ui, sans-serif; color: var(--t2); }
+.kv:first-child { border-top: 0; }
+.kv b { color: var(--t1); font-weight: 650; text-align: right; }
+.kv b small { display: block; font: 500 11px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.ex { display: inline-block; font: 700 9px ui-monospace, Menlo, monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--t2); border: 1px dashed rgba(255,255,255,.35); border-radius: 5px; padding: 1px 4px; margin-left: 4px; vertical-align: 2px; }
+.lock { color: var(--t3); }
+.free { font: 700 10px ui-monospace, Menlo, monospace; letter-spacing: .06em; text-transform: uppercase; color: #121418; background: var(--me); padding: 2px 6px; border-radius: 5px; }
+.paid { font: 700 10px ui-monospace, Menlo, monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--t2); border: 1px solid rgba(255,255,255,.25); padding: 1px 5px; border-radius: 5px; }
+.btns { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.btns .btn { width: 100%; height: 50px; }
+.btns .btn.ghost { height: 46px; font-size: 15px; }
+.field { border-radius: 16px; background: var(--s1); border: 1px solid var(--line); padding: 10px 14px; font: 500 15px -apple-system, system-ui, sans-serif; color: var(--t1); }
+.field small { display: block; font: 600 11px -apple-system, system-ui, sans-serif; color: var(--t2); margin-bottom: 3px; }
+.field.ph { color: var(--t3); }
+.prog { height: 8px; border-radius: 4px; background: rgba(255,255,255,.12); overflow: hidden; }
+.prog i { display: block; height: 100%; background: #fff; border-radius: 4px; }
+.banner { border-radius: 16px; padding: 10px 14px; font: 600 12.5px/1.4 -apple-system, system-ui, sans-serif; background: rgba(255,255,255,.07); border: 1.5px dashed rgba(255,255,255,.3); color: var(--t1); }
+.banner b { font-weight: 750; }
+.big-ok { width: 74px; height: 74px; border-radius: 50%; border: 2px solid #fff; display: grid; place-items: center; font: 800 34px -apple-system, system-ui, sans-serif; margin: 0 auto 16px; }
+.spin { width: 74px; height: 74px; border-radius: 50%; border: 4px solid rgba(255,255,255,.15); border-top-color: #fff; margin: 0 auto 16px; animation: sp 1s linear infinite; }
+@keyframes sp { to { transform: rotate(360deg); } }
+.center { text-align: center; }
+.center .p { margin-top: 8px; }
+.duo2 { display: flex; gap: 8px; }
+.duo2 .take { flex: 1; height: 300px; border-radius: 20px; overflow: hidden; position: relative; background: #2a1d17; }
+.duo2 .take img { position: absolute; width: 100%; height: 100%; object-fit: cover; }
+.duo2 .take .cap2 { position: absolute; left: 8px; right: 8px; bottom: 8px; border-radius: 12px; padding: 7px 9px; font: 650 12px -apple-system, system-ui, sans-serif; background: rgba(0,0,0,.55); }
+.duo2 .take .cap2 small { display: block; font: 500 10.5px -apple-system, system-ui, sans-serif; color: rgba(255,255,255,.75); }
+.seg2 { display: flex; padding: 3px; border-radius: 12px; background: rgba(255,255,255,.08); }
+.seg2 span { flex: 1; text-align: center; padding: 7px 0; border-radius: 9px; font: 650 13px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.seg2 span.on { background: #fff; color: #000; }
+.player { position: absolute; left: 0; top: 0; width: 390px; height: 300px; overflow: hidden; background: #2a1d17; }
+.player img { position: absolute; width: 100%; height: 100%; object-fit: cover; }
+.player .pbar { position: absolute; left: 14px; right: 14px; bottom: 12px; display: flex; gap: 6px; }
+.player .bigplay { position: absolute; left: 50%; top: 52%; transform: translate(-50%,-50%); width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,.92); display: grid; place-items: center; }
+.player .bigplay::after { content: ""; border-left: 20px solid #000; border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 5px; }
+.txt { font: 500 14px/1.5 -apple-system, system-ui, sans-serif; color: var(--t1); }
+.player ~ .nav .ttl, .player ~ .nav .ttl small { text-shadow: 0 1px 6px rgba(0,0,0,.9); color: #fff; }
+.qa { font: 500 13px/1.4 -apple-system, system-ui, sans-serif; color: var(--t2); }
 </style><link rel="stylesheet" href="proto-frame.css"></head><body><div class="phone"><div class="screen">
   <div class="island"></div>
   <div class="status"><span>21:05</span><span class="r">●●● 5G <span class="bat"></span></span></div>
 
-  <div class="head">
-    <h2>Apprendre</h2>
-    <div class="sub"><span class="avatar ini ph-mike">MI</span>Le cours de Mike · <b>retour sous 48 h</b></div>
+  <div class="hd"><div><div class="d">Lundi 16 novembre</div><h2>Bonjour Alexis</h2></div><div class="avatar ini ph-alexis" style="width:40px;height:40px">AL</div></div>
+  <div class="body" style="top:150px;bottom:90px"><div class="lbl">Continuer</div><div class="card2">
+        <div style="display:flex;gap:12px;align-items:center"><div class="vth ref" style="width:62px;height:78px;background-image:url(img/mike-street.jpg);background-size:cover;background-position:center 30%"></div>
+          <div style="flex:1"><div style="font:650 10.5px ui-monospace, Menlo, monospace;letter-spacing:.08em;color:var(--t2);text-transform:uppercase">Salsa fusion · Mike · leçon 4/5</div>
+          <div style="font:800 19px -apple-system, system-ui, sans-serif;margin-top:3px">Slide hip-hop</div><div class="sub2">Tu t'étais arrêté à 0:21</div></div><div class="btn primary" style="width:44px;height:44px;padding:0">→</div></div></div>
+    <div class="lbl" style="margin-top:18px">Mes demandes de retour <a>Tout voir</a></div>
+    <div class="grp"><div class="row "><div class="vth me" style="width:46px;height:46px;background-image:url(img/alexis-slide.jpg);background-size:cover;background-position:center 30%"></div><div class="tx"><b>Slide hip-hop · Mike</b><small>Reçue lun. 19:02 · retour attendu avant mer. 18 nov, 19:02</small></div><span class="state soon">en attente</span><span class="chev">›</span></div></div>
+    <div class="lbl" style="margin-top:18px">Gardée pour toi</div>
+    <div class="grp"><div class="row "><div class="vth me" style="width:46px;height:46px;background-position:60% 40%"></div><div class="tx"><b>Vidéo libre du 12 nov</b><small>Visible par toi uniquement · pas envoyée</small></div><span class="chip" style="height:26px">Envoyer</span></div></div>
+    <div class="btns" style="margin-top:16px"><div class="btn ghost">Trouver un prof pour un retour</div></div>
   </div>
-
-  <div class="next">
-    <div class="shot th"><div class="art"><img src="img/mike-street.jpg"></div><span class="nl">MIKE</span></div>
-    <div class="tx">
-      <div class="k">Nouvelle leçon de Mike · ce soir</div>
-      <b>Rumba Pop</b>
-      <span>▶ Vocal de Mike · 0:09 · « Ton genou est là. Maintenant, on ajoute le pop. »</span>
-    </div>
-    <div class="go">→</div>
-  </div>
-
-  <div class="sec" style="top:228px">Salsa fusion · les bases <a>6 leçons</a></div>
-  <div class="map">
-    <div class="lv cur" style="margin-bottom:0">
-      <div class="node"></div>
-      <div class="t"><b>Toutes ouvertes</b><span>dans l'ordre que tu veux</span></div>
-      <div class="box">
-        <div class="ls">
-          <div><span class="n">1</span>Compter la salsa<i class="kind">Théorie</i><span class="r">vue</span></div>
-          <div><span class="n">2</span>Mambo<i class="kind">Pas</i><span class="r ok">✓ retour reçu</span></div>
-          <div><span class="n">3</span>Le Slide<i class="kind">Pas</i><span class="r">démo de Frédérico</span></div>
-          <div><span class="n">4</span>Slide hip-hop<i class="kind">Enchaîn.</i><span class="r ok">✓ retour reçu</span></div>
-          <div><span class="n">5</span>Rumba Pop<i class="kind">Pas</i><span class="r ref">nouvelle</span></div>
-          <div><span class="n">6</span>Musicalité : entendre le 1<i class="kind">Théorie</i><span class="r"></span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="tabbar glass">
-    <div class="t on"><span class="pill"><svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z"/><path d="M5 17a3 3 0 013-3h11"/></svg></span>Apprendre</div>
-    <div class="t"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5" fill="currentColor"/></svg>Filmer</div>
-    <div class="t"><svg viewBox="0 0 24 24"><path d="M4 6h16v10H9l-5 4z"/></svg>Retours</div>
-    <div class="t"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Moi</div>
-  </div>
+  <div class="tabbar glass"><div class="t on" style="position:relative"><span class="pill"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-5h4v5"/></svg></span>Accueil</div><div class="t" style="position:relative"><svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z"/><path d="M5 17a3 3 0 013-3h11"/></svg>Mes cours</div><div class="t" style="position:relative"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5" fill="currentColor"/></svg>Filmer</div><div class="t" style="position:relative"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg>Vidéos</div><div class="t" style="position:relative"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>Profs</div></div>
   <div class="home-ind"></div>
-</div></div><script src="flows.js"></script><script src="frame.js"></script></body></html>
+</div></div><script>try{document.querySelectorAll(".wave[data-n]").forEach(w=>{const n=+w.dataset.n,p=+(w.dataset.p||0),s=+(w.dataset.seed||1);for(let i=0;i<n;i++){const v=Math.abs(Math.sin(i*1.7+s)*Math.cos(i*.37+s*2));const b=document.createElement("i");b.style.height=(4+v*20)+"px";if(p)b.className=i/n<p?"past":"fut";w.appendChild(b);}});}catch(e){}</script><script src="flows.js"></script><script src="frame.js"></script></body></html>

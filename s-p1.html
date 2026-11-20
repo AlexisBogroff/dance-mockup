@@ -1,64 +1,64 @@
-<!doctype html><html lang="fr" class="proto" data-state="p1"><head><meta name="viewport" content="width=390,user-scalable=no"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="dance.css">
+<!doctype html><html lang="fr" class="proto" data-state="p1"><head><meta name="viewport" content="width=390,user-scalable=no"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="dance.css"><link rel="stylesheet" href="lotb.css"><link rel="stylesheet" href="app.css">
 <style>
-.hero { left: 0; right: 0; top: 0; height: 366px; background: #2a1d17; }
-.hero .art { left: -300px; top: -30px; width: 800px; height: 533px; }
-.hero .veil { background: linear-gradient(180deg, rgba(7,7,10,.6) 0%, rgba(7,7,10,0) 22%, rgba(7,7,10,0) 52%, rgba(7,7,10,.85) 84%, #07070A 100%); }
-.brand { position: absolute; left: 24px; top: 64px; display: flex; align-items: center; gap: 9px; font: 750 15px -apple-system, system-ui, sans-serif; z-index: 5; }
-.brand .logo { width: 24px; height: 24px; border-radius: 7px; background: conic-gradient(from 200deg, var(--ref), #fff, var(--me), var(--ref)); }
-.brand span { font-weight: 550; color: rgba(255,255,255,.75); }
-.pin { position: absolute; left: 22px; right: 60px; top: 236px; z-index: 5; padding: 8px 12px 8px 8px; border-radius: 22px; }
-.pin .voice { padding: 0; gap: 9px; }
-.pin .voice .play { width: 30px; height: 30px; }
-.pin .voice .wave { height: 22px; }
-.pin .t { font: 600 11.5px -apple-system, system-ui, sans-serif; color: rgba(255,255,255,.8); margin: 6px 0 0 2px; }
-.pin .t b { color: var(--ref); font-weight: 700; }
-.body { position: absolute; left: 24px; right: 24px; top: 320px; }
-.kick { font: 650 11px ui-monospace, Menlo, monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--t2); }
-.body h2 { font: 800 27px/1.08 -apple-system, system-ui, sans-serif; letter-spacing: -.03em; margin: 6px 0 16px; }
-.sso { display: flex; flex-direction: column; gap: 10px; }
-.sso .btn { width: 100%; height: 52px; font-size: 16px; }
-.sso .btn svg { flex: none; }
-.or { display: flex; align-items: center; gap: 12px; margin: 14px 0 10px; font: 600 11.5px -apple-system, system-ui, sans-serif; color: var(--t2); }
-.or::before, .or::after { content: ""; flex: 1; border-top: 1px solid var(--line); }
-.mail { display: flex; gap: 8px; }
-.mail .field { flex: 1; min-width: 0; height: 52px; border-radius: 16px; background: rgba(255,255,255,.06); border: 1.5px solid rgba(255,255,255,.55); display: flex; align-items: center; padding: 0 14px; font: 550 15px -apple-system, system-ui, sans-serif; }
-.mail .field .cur { width: 2px; height: 20px; background: #fff; margin-left: 1px; }
-.mail .btn { height: 52px; font-size: 15px; padding: 0 18px; white-space: nowrap; }
-.hint { font: 500 12.5px/1.4 -apple-system, system-ui, sans-serif; color: var(--t2); margin-top: 9px; }
-.new { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; align-items: center; gap: 10px; font: 550 14px -apple-system, system-ui, sans-serif; color: var(--t2); }
-.new b { color: #fff; display: block; font-weight: 700; }
-.new .btn { margin-left: auto; height: 42px; font-size: 14px; padding: 0 16px; flex: none; }
-.desk { position: absolute; left: 24px; right: 24px; bottom: 28px; display: flex; gap: 10px; align-items: center; font: 500 12.5px/1.35 -apple-system, system-ui, sans-serif; color: var(--t2); }
-.desk b { color: #fff; font-weight: 650; }
-.desk svg { flex: none; width: 22px; height: 22px; fill: none; stroke: var(--t2); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.tabbar svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tabbar .t { min-width: 56px; }
+.ttl small { display: block; font: 500 11.5px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.hero { position: absolute; left: 0; top: 0; width: 390px; overflow: hidden; background: #2a1d17; }
+.hero img { position: absolute; width: 100%; height: 100%; object-fit: cover; }
+.hero .veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,0) 30%, rgba(7,7,10,0) 55%, #07070A); }
+.big { font: 800 29px/1.08 -apple-system, system-ui, sans-serif; letter-spacing: -.03em; }
+.sub2 { font: 500 13px/1.4 -apple-system, system-ui, sans-serif; color: var(--t2); margin-top: 4px; }
+.sub2 b { color: var(--t1); font-weight: 650; }
+.kv { display: flex; justify-content: space-between; gap: 12px; padding: 10px 14px; border-top: 1px solid var(--line); font: 500 13px/1.35 -apple-system, system-ui, sans-serif; color: var(--t2); }
+.kv:first-child { border-top: 0; }
+.kv b { color: var(--t1); font-weight: 650; text-align: right; }
+.kv b small { display: block; font: 500 11px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.ex { display: inline-block; font: 700 9px ui-monospace, Menlo, monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--t2); border: 1px dashed rgba(255,255,255,.35); border-radius: 5px; padding: 1px 4px; margin-left: 4px; vertical-align: 2px; }
+.lock { color: var(--t3); }
+.free { font: 700 10px ui-monospace, Menlo, monospace; letter-spacing: .06em; text-transform: uppercase; color: #121418; background: var(--me); padding: 2px 6px; border-radius: 5px; }
+.paid { font: 700 10px ui-monospace, Menlo, monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--t2); border: 1px solid rgba(255,255,255,.25); padding: 1px 5px; border-radius: 5px; }
+.btns { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.btns .btn { width: 100%; height: 50px; }
+.btns .btn.ghost { height: 46px; font-size: 15px; }
+.field { border-radius: 16px; background: var(--s1); border: 1px solid var(--line); padding: 10px 14px; font: 500 15px -apple-system, system-ui, sans-serif; color: var(--t1); }
+.field small { display: block; font: 600 11px -apple-system, system-ui, sans-serif; color: var(--t2); margin-bottom: 3px; }
+.field.ph { color: var(--t3); }
+.prog { height: 8px; border-radius: 4px; background: rgba(255,255,255,.12); overflow: hidden; }
+.prog i { display: block; height: 100%; background: #fff; border-radius: 4px; }
+.banner { border-radius: 16px; padding: 10px 14px; font: 600 12.5px/1.4 -apple-system, system-ui, sans-serif; background: rgba(255,255,255,.07); border: 1.5px dashed rgba(255,255,255,.3); color: var(--t1); }
+.banner b { font-weight: 750; }
+.big-ok { width: 74px; height: 74px; border-radius: 50%; border: 2px solid #fff; display: grid; place-items: center; font: 800 34px -apple-system, system-ui, sans-serif; margin: 0 auto 16px; }
+.spin { width: 74px; height: 74px; border-radius: 50%; border: 4px solid rgba(255,255,255,.15); border-top-color: #fff; margin: 0 auto 16px; animation: sp 1s linear infinite; }
+@keyframes sp { to { transform: rotate(360deg); } }
+.center { text-align: center; }
+.center .p { margin-top: 8px; }
+.duo2 { display: flex; gap: 8px; }
+.duo2 .take { flex: 1; height: 300px; border-radius: 20px; overflow: hidden; position: relative; background: #2a1d17; }
+.duo2 .take img { position: absolute; width: 100%; height: 100%; object-fit: cover; }
+.duo2 .take .cap2 { position: absolute; left: 8px; right: 8px; bottom: 8px; border-radius: 12px; padding: 7px 9px; font: 650 12px -apple-system, system-ui, sans-serif; background: rgba(0,0,0,.55); }
+.duo2 .take .cap2 small { display: block; font: 500 10.5px -apple-system, system-ui, sans-serif; color: rgba(255,255,255,.75); }
+.seg2 { display: flex; padding: 3px; border-radius: 12px; background: rgba(255,255,255,.08); }
+.seg2 span { flex: 1; text-align: center; padding: 7px 0; border-radius: 9px; font: 650 13px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.seg2 span.on { background: #fff; color: #000; }
+.player { position: absolute; left: 0; top: 0; width: 390px; height: 300px; overflow: hidden; background: #2a1d17; }
+.player img { position: absolute; width: 100%; height: 100%; object-fit: cover; }
+.player .pbar { position: absolute; left: 14px; right: 14px; bottom: 12px; display: flex; gap: 6px; }
+.player .bigplay { position: absolute; left: 50%; top: 52%; transform: translate(-50%,-50%); width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,.92); display: grid; place-items: center; }
+.player .bigplay::after { content: ""; border-left: 20px solid #000; border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 5px; }
+.txt { font: 500 14px/1.5 -apple-system, system-ui, sans-serif; color: var(--t1); }
+.player ~ .nav .ttl, .player ~ .nav .ttl small { text-shadow: 0 1px 6px rgba(0,0,0,.9); color: #fff; }
+.qa { font: 500 13px/1.4 -apple-system, system-ui, sans-serif; color: var(--t2); }
 </style><link rel="stylesheet" href="proto-frame.css"></head><body><div class="phone"><div class="screen">
   <div class="island"></div>
-  <div class="status"><span>21:40</span><span class="r">●●● 5G <span class="bat"></span></span></div>
-  <div class="shot hero"><div class="art"><img src="img/mike-street.jpg"></div><div class="veil"></div></div>
-  <div class="brand"><div class="logo"></div>OptimalFlow <span>· espace prof</span></div>
-  <div class="pin glass">
-    <div class="voice"><div class="play"></div><div class="wave" data-n="30" data-seed="4" data-h="18"></div><span class="dur">0:14</span></div>
-    <div class="t"><b>Ta voix</b>, posée sur leur vidéo, à 0:08</div>
-  </div>
+  <div class="status"><span>9:00</span><span class="r">●●● 5G <span class="bat"></span></span></div>
 
-  <div class="body">
-    <div class="kick">Espace prof</div>
-    <h2>Tes élèves dansent chez eux. Tu leur réponds à la voix.</h2>
-    <div class="sso">
-      <div class="btn primary"><svg viewBox="0 0 24 24" width="19" height="19" fill="#000"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8C6.9 7.2 5.4 8.1 4.6 9.6c-1.7 2.9-.4 7.2 1.2 9.6.8 1.2 1.7 2.4 3 2.4 1.2 0 1.6-.8 3-.8s1.8.8 3 .8c1.3 0 2.1-1.2 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.6-1-2.6-4zM14.2 5.6c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3z"/></svg>Continuer avec Apple</div>
-      <div class="btn ghost"><span style="font:800 17px -apple-system, system-ui, sans-serif">G</span>Continuer avec Google</div>
-    </div>
-    <div class="or">ou reçois un code par e-mail</div>
-    <div class="mail">
-      <div class="field">mike@exemple.fr<span class="cur"></span></div>
-      <div class="btn ghost">Recevoir</div>
-    </div>
-    <div class="hint">Un code à 6 chiffres arrive par e-mail. Rien à retenir.</div>
-    <div class="new"><span><b>Nouvelle prof&nbsp;?</b>Ton cours, à la voix.</span><span class="btn ghost">Ouvrir mon cours</span></div>
+  <div class="hero" style="height:430px"><img src="img/mike-street.jpg" style="object-position:center 25%"><div class="veil"></div></div>
+  <div class="blk" style="top:400px;left:22px;right:22px">
+    <div style="font:650 11px ui-monospace, Menlo, monospace;letter-spacing:.1em;color:var(--ref);text-transform:uppercase">Espace prof</div>
+    <div class="big" style="font-size:33px;margin-top:6px">Des danseurs te filment.<br>Tu réponds à la voix.</div>
+    <div class="sub2" style="margin-top:8px">Rends-toi disponible pour des retours. Créer un cours, c'est en plus, si tu veux.</div>
+    <div class="btns" style="margin-top:20px"><div class="btn primary">Créer mon profil de prof</div><div class="btn ghost">J'ai déjà un compte</div></div>
   </div>
-
   
   <div class="home-ind"></div>
-</div></div><script>try{
-document.querySelectorAll(".wave[data-n]").forEach(w=>{const n=+w.dataset.n,p=+(w.dataset.p||0),s=+(w.dataset.seed||1),h=+(w.dataset.h||22);for(let i=0;i<n;i++){const v=Math.abs(Math.sin(i*1.7+s)*Math.cos(i*.37+s*2));const b=document.createElement("i");b.style.height=(4+v*h)+"px";if(p)b.className=i/n<p?"past":"fut";w.appendChild(b);}});
-}catch(e){}</script><script src="flows.js"></script><script src="frame.js"></script></body></html>
+</div></div><script>try{document.querySelectorAll(".wave[data-n]").forEach(w=>{const n=+w.dataset.n,p=+(w.dataset.p||0),s=+(w.dataset.seed||1);for(let i=0;i<n;i++){const v=Math.abs(Math.sin(i*1.7+s)*Math.cos(i*.37+s*2));const b=document.createElement("i");b.style.height=(4+v*20)+"px";if(p)b.className=i/n<p?"past":"fut";w.appendChild(b);}});}catch(e){}</script><script src="flows.js"></script><script src="frame.js"></script></body></html>
