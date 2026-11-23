@@ -6,7 +6,7 @@
   const P = window.parent !== window ? window.parent : null;
   if (P && P.PROTO_PHONE) root.classList.add("on-phone");
   const norm = (s) => s.replace(/\s+/g, " ").trim();
-  const CLICK = ".btn, .chip, .row, .opt, .tabbar .t, .card";
+  const CLICK = ".btn, .chip, .row, .opt, .tabbar .t, .card, .circ, .rec, .mic, .field";
   const all = [...document.querySelectorAll(".screen *")];
   for (const [key, act] of Object.entries(F.hot || {})) {
     const k = key.replace(/^~/, "");

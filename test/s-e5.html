@@ -1,108 +1,11 @@
-<!doctype html><html lang="fr" class="proto" data-state="e5"><head><meta name="viewport" content="width=390,user-scalable=no"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="dance.css">
-<style>
-.vid { left: 0; top: 0; width: 390px; height: 276px; background: #2a1d17; }
-.vid .art { left: -102px; top: 18px; width: 600px; height: 400px; }
-.vid .veil { background: linear-gradient(180deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 72%, rgba(0,0,0,.7) 100%); }
-.draw { position: absolute; left: 0; top: 0; width: 390px; height: 276px; z-index: 15; overflow: visible; }
-.hand { position: absolute; z-index: 16; font: 400 23px "Bradley Hand", "Marker Felt", cursive; color: var(--ref); text-shadow: 0 1px 8px rgba(0,0,0,.7); transform: rotate(-6deg); white-space: nowrap; }
-.drawtag { position: absolute; z-index: 16; left: 14px; top: 240px; font: 650 10.5px -apple-system, system-ui, sans-serif; color: var(--ref); background: rgba(0,0,0,.55); padding: 3px 8px; border-radius: 6px; }
-.topbar { position: absolute; top: 56px; left: 14px; right: 14px; display: flex; align-items: center; gap: 8px; z-index: 20; }
-.topbar .b { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font: 400 22px -apple-system, system-ui, sans-serif; flex: none; }
-.topbar .ttl { flex: 1; height: 40px; border-radius: 20px; display: flex; align-items: center; gap: 6px; padding: 0 14px; font: 700 14.5px -apple-system, system-ui, sans-serif; white-space: nowrap; }
-.topbar .ttl small { font: 500 12px -apple-system, system-ui, sans-serif; color: rgba(255,255,255,.75); }
-.pause { position: absolute; top: 236px; left: 14px; z-index: 20; display: flex; align-items: center; gap: 7px; height: 28px; padding: 0 11px 0 10px; border-radius: 99px; font: 650 12px -apple-system, system-ui, sans-serif; }
-.pause::before { content: ""; height: 11px; border-left: 3px solid #fff; border-right: 3px solid #fff; width: 2px; box-sizing: content-box; }
-.me-tag { position: absolute; top: 240px; right: 14px; z-index: 20; height: 24px; padding: 0 9px; border-radius: 7px; background: var(--me); color: #121418; font: 800 10.5px ui-monospace, Menlo, monospace; letter-spacing: .08em; display: flex; align-items: center; }
-
-
-/* Pellicule de la vidéo : on se repère au temps, sans compte propre à une danse */
-.strip { display: flex; gap: 3px; height: 34px; }
-.strip i { flex: 1; border-radius: 7px; background: #2a1d17 url(img/street.jpg) no-repeat; background-size: 330% auto; opacity: .55; position: relative; }
-.strip i.now { opacity: 1; box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--ref); }
-.strip i.note::after { content: ""; position: absolute; top: -5px; right: -3px; width: 10px; height: 10px; border-radius: 50%; background: var(--ref); box-shadow: 0 0 0 2px var(--bg); }
-.times { display: flex; justify-content: space-between; margin-top: 7px; font: 600 9.5px ui-monospace, Menlo, monospace; color: var(--t2); }
-/* Le lecteur */
-.ruler { position: absolute; top: 280px; left: 10px; right: 10px; padding: 8px 10px 8px; border-radius: 18px; background: var(--s1); border: 1px solid var(--line); z-index: 20; }
-.ruler .lab { display: flex; justify-content: space-between; align-items: baseline; font: 600 11.5px -apple-system, system-ui, sans-serif; color: var(--t2); margin-bottom: 6px; }
-.ruler .lab b { color: #fff; font: 700 12px ui-monospace, Menlo, monospace; }
-.track { position: relative; display: flex; gap: 5px; margin-bottom: 8px; }
-.track .eight { flex: 1; }
-.track .eight.cur .c:not(.p) { background: rgba(255,255,255,.4); }
-.track .mk { position: absolute; top: -4px; width: 9px; height: 9px; margin-left: -4.5px; border-radius: 50%; background: var(--ref); box-shadow: 0 0 0 2px var(--s1); }
-.track .head { position: absolute; top: -5px; bottom: -5px; width: 2px; margin-left: -1px; background: #fff; border-radius: 1px; }
-.ruler .eight.sm .c { height: 20px; }
-.ruler .legend8 { margin-top: 6px; }
-
-.body { position: absolute; left: 0; right: 0; top: 386px; bottom: 0; padding: 0 12px; }
-.from { display: flex; align-items: center; gap: 9px; padding: 0 4px; }
-.from .avatar { width: 32px; height: 32px; background: var(--ref); color: #121418; font-size: 11px; }
-.from .who { font: 700 14px -apple-system, system-ui, sans-serif; line-height: 1.15; }
-.from .who small { display: block; font: 500 11px -apple-system, system-ui, sans-serif; color: var(--t2); }
-.from .state { margin-left: auto; }
-.vcard { margin-top: 7px; padding: 4px 4px 6px; border-radius: 20px; background: var(--s1); border: 1px solid var(--line); }
-.vcard .voice { background: var(--ref-a); padding: 6px 10px 6px 6px; }
-.vcard .voice .play { width: 30px; height: 30px; }
-.vcard .voice .wave { height: 24px; }
-.pin { font: 700 11px ui-monospace, Menlo, monospace; color: var(--ref); white-space: nowrap; }
-.vcard .tr { font: 450 13px/1.32 -apple-system, system-ui, sans-serif; color: #E4E4EA; padding: 5px 8px 0; }
-.vcard .auto { padding: 2px 8px 0; display: block; }
-.vcard.small .tr { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
-.pvid { margin-top: 7px; display: flex; align-items: center; gap: 10px; padding: 5px 10px 5px 5px; border-radius: 18px; background: var(--s1); border: 1px solid var(--line); }
-.pvid .shot { position: relative; width: 64px; height: 46px; border-radius: 12px; background: #2a1d17; flex: none; box-shadow: inset 0 0 0 2px var(--ref); }
-.pvid .shot .art { left: -66px; top: -16px; width: 190px; height: 127px; }
-.pvid .shot .play { position: absolute; inset: 0; display: grid; place-items: center; z-index: 3; }
-.pvid .shot .play::after { content: ""; border-left: 11px solid #fff; border-top: 7px solid transparent; border-bottom: 7px solid transparent; margin-left: 3px; filter: drop-shadow(0 1px 3px rgba(0,0,0,.6)); }
-.pvid .shot .nora { position: absolute; left: 3px; top: 3px; z-index: 3; font: 800 8px ui-monospace, Menlo, monospace; letter-spacing: .06em; color: #121418; background: var(--ref); padding: 1px 4px; border-radius: 4px; }
-.pvid .m { flex: 1; min-width: 0; }
-.pvid .m b { display: block; font: 650 13px -apple-system, system-ui, sans-serif; }
-.pvid .m span { font: 500 11px -apple-system, system-ui, sans-serif; color: var(--t2); }
-.pvid .dur { font: 600 12px ui-monospace, Menlo, monospace; color: var(--t2); }
-.cta { display: flex; gap: 8px; margin-top: 9px; }
-.cta .btn { height: 44px; font-size: 14.5px; padding: 0 16px; }
-.cta .primary { flex: 1; }
-.next { margin-top: 8px; display: flex; align-items: center; gap: 10px; padding: 7px 12px; border-radius: 18px; background: var(--s1); border: 1px solid var(--line); }
-.next .m { flex: 1; }
-.next .k { font: 700 10px ui-monospace, Menlo, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--t2); }
-.next b { display: block; font: 700 14px -apple-system, system-ui, sans-serif; margin-top: 1px; }
-.next span.s { font: 500 11.5px -apple-system, system-ui, sans-serif; color: var(--t2); }
-.next .bal { text-align: right; font: 600 11.5px/1.3 -apple-system, system-ui, sans-serif; color: var(--t2); }
-.next .bal b { font: 800 15px ui-rounded, -apple-system, system-ui, sans-serif; color: #fff; display: inline; }
-.voice .dur { white-space: nowrap; }
-</style><link rel="stylesheet" href="proto-frame.css"></head><body><div class="phone"><div class="screen">
-  <div class="island"></div>
-  <div class="status"><span>18:45</span><span class="r">●●● 5G <span class="bat"></span></span></div>
-
-  <div class="shot vid mirror"><div class="art"><img src="img/alexis-slide.jpg"></div><div class="veil"></div></div>
-  <div class="topbar">
-    <div class="b glass">‹</div>
-    <div class="ttl glass">Retour de Mike <small>· vidéo du 24 nov</small></div>
+<!doctype html><html lang="fr" class="proto" data-state="e5"><head><meta charset="utf-8"><meta name="viewport" content="width=390,user-scalable=no"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="glass.css"><link rel="stylesheet" href="proto-frame.css"></head><body><div class="phone"><div class="screen"><div class="media mirror"><img src="img/alexis-slide.jpg"></div><div class="island"></div><div class="status"><span>18:45</span><span class="r">●●● 5G <span class="bat"></span></span></div>
+  <div class="top"><div class="circ g" style="font:400 30px/1 var(--sf);padding-bottom:3px">‹</div><div class="chip g" style="margin:0 auto"><div class="av mike" style="width:24px;height:24px;margin-left:-8px"></div>Mike</div><div class="sp"></div></div>
+  <div class="body" style="top:452px">
+    <div class="timeline g dark"><div class="tm"><span><b>0:08</b></span><span>0:34</span></div>
+      <div class="tr"><div class="fill" style="width:23.5%"></div><div class="mk" style="left:23.5%"><svg viewBox="0 0 12 12"><rect x="4.4" y="1.2" width="3.2" height="5.6" rx="1.6" fill="#1a0c00" stroke="none"/><path d="M2.8 5.6a3.2 3.2 0 006.4 0M6 8.8v1.8"/></svg></div><div class="mk" style="left:61.8%"><svg viewBox="0 0 12 12"><path d="M2 3h8M2 6h8M2 9h5"/></svg></div></div></div>
+    <div class="voice g row" style="margin-top:12px"><div class="play"></div><span class="at" style="z-index:3">0:08</span><div class="wave" data-n="26" data-p="0.3" data-seed="4"></div><span class="dur">0:14</span></div>
+    <div class="bubble g dark" style="margin-top:10px"><span class="at">0:21</span>&nbsp; Là c'est propre. Garde les épaules basses.</div>
   </div>
-  <div class="pause glass">0:08 · le vocal de Mike se lance</div>
-  <div class="me-tag">MOI</div>
-  <div class="ruler">
-    <div class="lab"><span><b>0:08</b> / 0:34</span><span>1 vocal · 1 texte</span></div>
-    <div class="track">
-      <div class="bar0" style="flex:1;height:5px;border-radius:3px;background:linear-gradient(90deg,rgba(255,255,255,.75) 23.5%,rgba(255,255,255,.18) 23.5%)"></div>
-      <span class="mk" style="left:23.5%"></span><span class="mk" style="left:61.8%"></span>
-      <span class="head" style="left:23.5%"></span>
-    </div>
-    <div class="strip" style="height:26px"><i style="background-position:18% 38%"></i><i style="background-position:27% 38%"></i><i class="now note" style="background-position:36% 38%"></i><i style="background-position:45% 38%"></i><i style="background-position:54% 38%"></i><i class="note" style="background-position:63% 38%"></i><i style="background-position:72% 38%"></i><i style="background-position:81% 38%"></i><i style="background-position:90% 38%"></i></div>
-    <div class="times"><span>0:00</span><span>0:10</span><span>0:20</span><span>0:34</span></div>
-  </div>
-  <div class="body">
-    <div class="from">
-      <div class="avatar ini ring-ref ph-mike">MI</div>
-      <div class="who">Mike <small>mer. 25 nov · 18:42</small></div>
-    </div>
-    <div class="vcard">
-      <div class="voice"><span class="pin">à 0:08</span><div class="play"></div><div class="wave" data-n="30" data-p="0.3" data-seed="4"></div><span class="dur">0:14</span></div>
-    </div>
-    <div class="vcard small">
-      <div class="tr"><span class="pin" style="position:static;margin-right:6px">à 0:21</span>« Là c'est propre. Garde les épaules basses. »</div>
-    </div>
-    <div class="cta">
-      <div class="btn ghost">Réécouter</div><div class="btn primary">Refilmer</div>
-    </div>
-  </div>
-  <div class="home-ind"></div>
-</div></div><script>try{document.querySelectorAll(".wave[data-n]").forEach(w=>{const n=+w.dataset.n,p=+(w.dataset.p||0),s=+(w.dataset.seed||1);for(let i=0;i<n;i++){const v=Math.abs(Math.sin(i*1.7+s)*Math.cos(i*.37+s*2));const b=document.createElement("i");b.style.height=(4+v*16)+"px";if(p)b.className=i/n<p?"past":"fut";w.appendChild(b)}})}catch(e){}</script><script src="flows.js"></script><script src="frame.js"></script></body></html>
+  <div class="body" style="bottom:38px">
+    <div class="btns row2"><div class="btn g">Réécouter</div><div class="btn g tint">Refilmer</div></div>
+  </div><div class="home-ind"></div></div></div><script>document.querySelectorAll(".wave[data-n]").forEach(w=>{const n=+w.dataset.n,p=+(w.dataset.p||1),s=+(w.dataset.seed||1);for(let i=0;i<n;i++){const v=Math.abs(Math.sin(i*1.7+s)*Math.cos(i*.37+s*2));const b=document.createElement("i");b.style.height=(5+v*20)+"px";if(i/n>=p)b.className="fut";w.appendChild(b)}})</script><script src="flows.js"></script><script src="frame.js"></script></body></html>
