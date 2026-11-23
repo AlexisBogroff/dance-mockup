@@ -9,7 +9,7 @@
     <div style="display:flex;align-items:center;justify-content:center;gap:40px">
       <div class="circ g" style="width:54px;height:54px;font:600 17px var(--sf)">Aa<span class="sr">Texte</span></div>
       <div class="mic g tint live"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" fill="#1a0c00"/><path d="M5.5 11a6.5 6.5 0 0013 0M12 17.5V21"/></svg><span class="sr">Micro</span></div>
-      <div style="width:54px"></div>
+      <div class="circ g" style="width:54px;height:54px"><svg viewBox="0 0 24 24"><path d="M4 20l1-4.5L15.5 5a2.1 2.1 0 013 3L8 18.5z"/><path d="M13.5 7l3 3"/></svg><span class="sr">Dessin</span></div>
     </div>
     <div class="cap">Relâche pour poser à 0:08</div>
   </div><div class="home-ind"></div></div></div><script>document.querySelectorAll(".wave[data-n]").forEach(w=>{const n=+w.dataset.n,p=+(w.dataset.p||1),s=+(w.dataset.seed||1);for(let i=0;i<n;i++){const v=Math.abs(Math.sin(i*1.7+s)*Math.cos(i*.37+s*2));const b=document.createElement("i");b.style.height=(5+v*20)+"px";if(i/n>=p)b.className="fut";w.appendChild(b)}})</script><script src="flows.js"></script><script src="frame.js"></script></body></html>

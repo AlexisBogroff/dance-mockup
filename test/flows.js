@@ -1,4 +1,4 @@
-// Mockup « feedback · version test » (24 nov, OPT-1208), en Liquid Glass épuré : les 8 écrans de la v0.
+// Mockup « feedback · version test » (24 nov, OPT-1208), en Liquid Glass épuré : les 8 écrans de la v0, avec le dessin du prof (24/11).
 // hot = texte visible -> action ("back", "toast:…", "a>b", "cond:drapeau:si:sinon", ou un croisement { x, l, m }).
 // Drapeaux : sent (une demande est partie), fb (le retour est livré).
 const TABS_P = { "Demandes": "p2", "Élèves": "p4", "Réglages": "p1" };
@@ -7,6 +7,7 @@ window.STATES = [
   ["p1", "t-p-reglages", 0, "8 · Réglages"],
   ["p2", "t-p-demandes", 0, "6 · Demandes"],
   ["p3", "t-p-corriger", 0, "7 · Corriger à la voix"],
+  ["p3d", "t-p-dessiner", 0, "7 · Dessiner sur l'image"],
   ["p3b", "t-p-relire", 0, "7 · Relire et envoyer"],
   ["p3c", "t-p-envoye", 0, "7 · Envoyé"],
   ["p4", "t-p-eleves", 0, "8 · Élèves"],
@@ -32,8 +33,9 @@ window.FLOWS = {
     "Inviter mes élèves": { x: "e1", l: "Côté élève", m: "Mardi soir. Alexis ouvre le lien que Mike a envoyé.", prof: { x: "p2", l: "Le lendemain", m: "Mer. 25 nov, 18:30. Deux demandes." } },
     ...TABS_P } },
   p2: { hot: { "Alexis": "p3", "Sami": "toast:Même écran, avec la vidéo de Sami.", "Léo": "toast:Léo doit repayer.", ...TABS_P } },
-  p3: { hot: { "Micro": "p3b", "Relâche pour poser à 0:08": "p3b", "Texte": "toast:Le clavier s'ouvre : le texte se pose à 0:08.", "‹": "back" } },
-  p3b: { hot: { "Envoyer à Alexis": "p3c", "Paiement non reçu": "toast:La demande repart chez Alexis. Hors commission.", "0:14": "toast:Ton vocal, posé à 0:08.", "‹": "back" } },
+  p3: { hot: { "Micro": "p3b", "Relâche pour poser à 0:08": "p3b", "Texte": "toast:Le clavier s'ouvre : le texte se pose à 0:08.", "Dessin": "p3d", "‹": "back" } },
+  p3d: { hot: { "OK": "p3b", "Annuler": "back", "Annuler le trait": "toast:Le dernier trait s'efface.", "Micro": "toast:Parle en dessinant : le vocal se pose à 0:08, avec le dessin.", "Couleur": "toast:Orange ou blanc." } },
+  p3b: { hot: { "Envoyer à Alexis": "p3c", "Paiement non reçu": "toast:La demande repart chez Alexis. Hors commission.", "0:14": "toast:Ton dessin et ton vocal, posés à 0:08.", "‹": "back" } },
   p3c: { set: "fb", hot: {
     "Corriger Sami": { x: "en", l: "Côté élève", m: "Mer. 25 nov, 18:43. Le téléphone d'Alexis est verrouillé.", prof: { x: "p4", l: "Plus tard", m: "Mike regarde ses élèves." } },
     "Revoir": "toast:Ton retour, tel qu'Alexis le reçoit." } },
@@ -50,5 +52,5 @@ window.FLOWS = {
     ...TABS_E }, any: { x: "p2", l: "Côté prof", m: "Mer. 25 nov, 18:30. Mike ouvre ses demandes.", eleve: { x: "en", l: "Le lendemain", m: "Mer. 25 nov, 18:43." } } },
   en: { set: "fb", any: "e5", hot: { "Mike a répondu": "e5" } },
   e4b: { hot: { "24 nov": "e5", "10 nov": "toast:Ton retour précédent.", ...TABS_E } },
-  e5: { hot: { "Refilmer": "e2", "Réécouter": "toast:Depuis 0:00 : le vocal à 0:08, le texte à 0:21.", "0:14": "toast:Le vocal de Mike, à l'instant où il l'a posé.", "‹": "e4b" } },
+  e5: { hot: { "Refilmer": "e2", "Réécouter": "toast:Depuis 0:00. À 0:08 la vidéo s'arrête sur le dessin de Mike et sa voix part. Le texte à 0:21.", "0:14": "toast:Le dessin et la voix de Mike, à l'instant où il les a posés.", "‹": "e4b" } },
 };
