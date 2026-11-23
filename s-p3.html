@@ -48,6 +48,16 @@
 .txt { font: 500 14px/1.5 -apple-system, system-ui, sans-serif; color: var(--t1); }
 .player ~ .nav .ttl, .player ~ .nav .ttl small { text-shadow: 0 1px 6px rgba(0,0,0,.9); color: #fff; }
 .qa { font: 500 13px/1.4 -apple-system, system-ui, sans-serif; color: var(--t2); }
+.offer { border-radius: 18px; background: var(--s1); border: 1.5px solid var(--ref); padding: 12px 14px; }
+.offer .otop { display: flex; justify-content: space-between; align-items: baseline; font: 750 15px -apple-system, system-ui, sans-serif; }
+.offer .otop .px { font: 800 20px -apple-system, system-ui, sans-serif; color: var(--ref); }
+.offer .meta { font: 500 12.5px/1.4 -apple-system, system-ui, sans-serif; color: var(--t2); margin-top: 3px; }
+.offer .kw { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.offer .kw span { font: 650 11px -apple-system, system-ui, sans-serif; padding: 3px 8px; border-radius: 99px; background: var(--ref-a); color: var(--ref); }
+.course { display: flex; gap: 12px; align-items: center; border-radius: 18px; background: var(--s1); border: 1px solid var(--line); padding: 10px 12px; }
+.course .tx { flex: 1; min-width: 0; }
+.course .tx b { display: block; font: 750 15px -apple-system, system-ui, sans-serif; }
+.course .tx small { display: block; font: 500 12px/1.35 -apple-system, system-ui, sans-serif; color: var(--t2); margin-top: 2px; }
 </style><link rel="stylesheet" href="proto-frame.css"></head><body><div class="phone"><div class="screen">
   <div class="island"></div>
   <div class="status"><span>9:06</span><span class="r">●●● 5G <span class="bat"></span></span></div>
@@ -58,14 +68,15 @@
     <div><div class="big">Mike</div><div class="sub2">Salsa fusion, hip-hop · <span class="state ok">disponible</span></div></div></div>
   <div class="body" style="top:200px;bottom:0px">
     <div class="voice glass" style="background:var(--s1)"><div class="play"></div><div class="wave" data-n="34" data-seed="5"></div><span class="dur">0:24</span></div>
-    <div class="lbl" style="margin-top:14px">Conditions de retour</div>
-    <div class="grp">
-      <div class="kv">Délai<b>48 h après réception</b></div>
-      <div class="kv">Vidéo<b>1 min max</b></div>
-      <div class="kv">Ce qu'il corrige<b>pas, enchaînements, musicalité</b></div>
-      <div class="kv">Tarif<b>12 €<span class="ex">exemple</span></b></div>
+    <div class="lbl" style="margin-top:14px">Ses retours sur ta vidéo</div>
+    <div class="offer">
+      <div class="otop"><span>Un retour sur une vidéo</span><span class="px">12 €<span class="ex">exemple</span></span></div>
+      <div class="meta">Sous 48 h après réception · vidéo de 1 min max</div>
+      <div class="meta" style="color:var(--t1)">Chaque point : un label, puis son annotation (vocal ou dessin).</div>
+      <div class="kw"><span>pas</span><span>enchaînements</span><span>musicalité</span></div>
     </div>
-    <div class="note">Aucun cours publié : ce n'est pas nécessaire pour recevoir des demandes.</div>
+    <div class="lbl" style="margin-top:16px">Ses cours <a>aucun</a></div>
+    <div class="grp"><div class="row "><span class="ic">∅</span><div class="tx"><b>Mike n’a pas publié de cours</b><small>Tu peux lui demander un retour quand même</small></div></div></div>
     <div class="btns"><div class="btn primary">Publier et ouvrir les demandes</div><div class="btn ghost">Modifier</div></div>
   </div>
   

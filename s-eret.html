@@ -33,7 +33,7 @@
 .ruler .eight.sm .c { height: 20px; }
 .ruler .legend8 { margin-top: 6px; }
 
-.body { position: absolute; left: 0; right: 0; top: 386px; bottom: 0; padding: 0 12px; }
+.body { position: absolute; left: 0; right: 0; top: 386px; bottom: 0; padding: 0 12px 40px; overflow-y: auto; }
 .from { display: flex; align-items: center; gap: 9px; padding: 0 4px; }
 .from .avatar { width: 32px; height: 32px; background: var(--ref); color: #121418; font-size: 11px; }
 .from .who { font: 700 14px -apple-system, system-ui, sans-serif; line-height: 1.15; }
@@ -60,6 +60,12 @@
 .cta { display: flex; gap: 8px; margin-top: 9px; }
 .cta .btn { height: 44px; font-size: 14.5px; padding: 0 16px; }
 .cta .primary { flex: 1; }
+/* chaque point : le label et ses mots-clés, puis l'annotation libre (Alexis, 23/11) */
+.lbrow { display: flex; align-items: center; gap: 6px; padding: 4px 6px 5px; }
+.lbrow .lb { height: 22px; padding: 0 9px; border-radius: 11px; background: var(--ref); color: #121418; font: 750 11.5px -apple-system, system-ui, sans-serif; display: inline-flex; align-items: center; }
+.lbrow .kws { font: 600 11px -apple-system, system-ui, sans-serif; color: var(--ref); }
+.lbrow .pin { margin-left: auto; }
+.lbrow .dr { font: 600 11px -apple-system, system-ui, sans-serif; color: var(--t2); }
 .next { margin-top: 8px; display: flex; align-items: center; gap: 10px; padding: 7px 12px; border-radius: 18px; background: var(--s1); border: 1px solid var(--line); }
 .next .m { flex: 1; }
 .next .k { font: 700 10px ui-monospace, Menlo, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--t2); }
@@ -90,7 +96,7 @@
   <div class="me-tag">MOI</div>
 
   <div class="ruler">
-    <div class="lab"><span><b>0:08</b> / 0:34 · ta vidéo du lun. 16 nov</span><span>2 vocaux de Mike</span></div>
+    <div class="lab"><span><b>0:08</b> / 0:34 · ta vidéo du lun. 16 nov</span><span>2 points de Mike</span></div>
     <div class="track">
       <div class="bar0" style="flex:1;height:5px;border-radius:3px;background:linear-gradient(90deg,rgba(255,255,255,.75) 23.5%,rgba(255,255,255,.18) 23.5%)"></div>
       <span class="mk" style="left:23.5%"></span><span class="mk" style="left:61.8%"></span>
@@ -107,12 +113,14 @@
       
     </div>
     <div class="vcard">
-      <div class="voice"><span class="pin">à 0:08</span><div class="play"></div><div class="wave" data-n="30" data-p="0.3" data-seed="4"></div><span class="dur">0:14</span></div>
+      <div class="lbrow"><span class="lb">Timing</span><span class="kws">genou · trop tard</span><span class="dr">+ dessin</span><span class="pin">à 0:08</span></div>
+      <div class="voice"><div class="play"></div><div class="wave" data-n="30" data-p="0.3" data-seed="4"></div><span class="dur">0:14</span></div>
       <div class="tr">« Au moment du slide, ton genou monte trop tard : lève-le dès que ton pied glisse. »</div>
       <span class="auto">transcrit automatiquement</span>
     </div>
     <div class="vcard small">
-      <div class="voice"><span class="pin">à 0:21</span><div class="play"></div><div class="wave" data-n="30" data-p="0" data-seed="9"></div><span class="dur">0:06</span></div>
+      <div class="lbrow"><span class="lb">Expression</span><span class="kws">sourire · acquis</span><span class="pin">à 0:21</span></div>
+      <div class="voice"><div class="play"></div><div class="wave" data-n="30" data-p="0" data-seed="9"></div><span class="dur">0:06</span></div>
       <div class="tr"><span>« Et là, souris. Tu l'as ! »</span><span class="auto">transcrit automatiquement</span></div>
     </div>
     <div class="pvid">

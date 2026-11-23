@@ -97,6 +97,27 @@ html.phoneboard .board { gap: 26px; padding: 6px 30px; }
 .send .to { display: flex; align-items: center; justify-content: space-between; font: 500 11.5px -apple-system, system-ui, sans-serif; color: var(--t2); margin: 0 6px 7px; }
 .send .to b { color: #fff; font-weight: 650; }
 .send .btn { width: 100%; height: 52px; font-size: 16.5px; }
+
+/* retour double : un label (mots-clés) + une annotation libre (Alexis, 23/11) */
+.lblk { position: absolute; left: 12px; right: 12px; z-index: 30; border-radius: 18px; padding: 9px 12px 10px; }
+.lblk .lab { display: flex; justify-content: space-between; font: 650 11.5px -apple-system, system-ui, sans-serif; color: var(--t2); margin-bottom: 7px; }
+.lblk .lab b { color: #fff; font-weight: 700; }
+.kw { display: flex; flex-wrap: wrap; gap: 5px; }
+.kw + .kw { margin-top: 6px; }
+.kw span { height: 26px; padding: 0 10px; border-radius: 13px; display: inline-flex; align-items: center; font: 650 12px -apple-system, system-ui, sans-serif; background: rgba(255,255,255,.09); color: #fff; }
+.kw span.on { background: var(--ref); color: #121418; }
+.kw span.k { background: rgba(255,128,8,.16); color: var(--ref); }
+.kw span.k.on { background: #fff; color: #121418; }
+.kw span.add { background: none; border: 1.5px dashed rgba(255,255,255,.35); color: var(--t2); }
+.step { font: 700 10px ui-monospace, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--ref); margin-right: 6px; }
+.pt { border-radius: 16px; background: rgba(255,128,8,.07); padding: 8px 10px 6px; margin-bottom: 6px; }
+.pt .hd2 { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+.pt .hd2 .at { font: 700 11px ui-monospace, Menlo, monospace; color: var(--ref); width: 30px; flex: none; }
+.pt .hd2 .lb { height: 22px; padding: 0 9px; border-radius: 11px; background: var(--ref); color: #121418; font: 750 11.5px -apple-system, system-ui, sans-serif; display: inline-flex; align-items: center; }
+.pt .hd2 .kws { font: 600 11px -apple-system, system-ui, sans-serif; color: var(--ref); }
+.pt .it { background: none; margin: 0; padding: 3px 0 3px 0; }
+.pt .it .tx { padding-top: 6px; }
+
 </style><link rel="stylesheet" href="proto-frame.css"></head><body><div class="phone"><div class="screen">
   <div class="island"></div>
   <div class="status"><span>18:39</span><span class="r">●●● 5G <span class="bat"></span></span></div>
@@ -122,14 +143,20 @@ html.phoneboard .board { gap: 26px; padding: 6px 30px; }
     </div>
   </div>
 
-  <div class="items" style="top:282px">
-    <h5><span>Ton retour</span><span>2 vocaux · 1 dessin</span></h5>
-    <div class="it"><span class="at">0:08</span><div class="play"></div><div class="tx">« Au moment du slide, ton genou monte trop tard : lève-le dès que ton pied glisse. »<span class="auto">transcrit automatiquement</span></div><span class="d">0:14</span></div>
-    <div class="it"><span class="at">0:08</span><div class="pen"><svg viewBox="0 0 12 12"><path d="M2 10l1-3 5-5 2 2-5 5z"/></svg></div><div class="tx" style="padding-top:7px">Dessin : une flèche, «&nbsp;plus haut&nbsp;!&nbsp;»</div></div>
-    <div class="it"><span class="at">0:21</span><div class="play"></div><div class="tx">« Et là, souris. Tu l'as ! »<span class="auto">transcrit automatiquement</span></div><span class="d">0:06</span></div>
+  <div class="items" style="top:288px">
+    <h5><span>Ton retour</span><span>2 points · label + annotation</span></h5>
+    <div class="pt">
+      <div class="hd2"><span class="at">0:08</span><span class="lb">Timing</span><span class="kws">genou · trop tard</span></div>
+      <div class="it"><div class="play"></div><div class="tx">« Ton genou monte trop tard : lève-le dès que ton pied glisse. »<span class="auto">transcrit automatiquement</span></div><span class="d">0:14</span></div>
+      <div class="it"><div class="pen"><svg viewBox="0 0 12 12"><path d="M2 10l1-3 5-5 2 2-5 5z"/></svg></div><div class="tx">Dessin : une flèche, «&nbsp;plus haut&nbsp;!&nbsp;»</div></div>
+    </div>
+    <div class="pt">
+      <div class="hd2"><span class="at">0:21</span><span class="lb">Expression</span><span class="kws">sourire · acquis</span></div>
+      <div class="it"><div class="play"></div><div class="tx">« Et là, souris. Tu l'as ! »<span class="auto">transcrit automatiquement</span></div><span class="d">0:06</span></div>
+    </div>
   </div>
 
-  <div class="acts" style="top:512px">
+  <div class="acts" style="top:566px">
     <div class="row">
       <div class="a"><svg viewBox="0 0 24 24"><path d="M21 12l-8.5 8.5a5 5 0 01-7-7L14 5a3.3 3.3 0 014.7 4.7L10.2 18a1.7 1.7 0 01-2.4-2.4L15.5 8"/></svg>Joindre une vidéo</div>
       <div class="a"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="3"/><path d="M16 10l5-3v10l-5-3"/></svg>Me filmer pour Alexis</div>
@@ -137,7 +164,7 @@ html.phoneboard .board { gap: 26px; padding: 6px 30px; }
     <div class="a" style="flex:none"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0114-5.3M20 12a8 8 0 01-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg><span>Demander de refilmer</span></div>
   </div>
 
-  <div class="send" style="top:622px">
+  <div class="send" style="top:674px">
     <div class="to"><span>Visible par <b>Alexis et toi</b></span><span>5 s pour annuler</span></div>
     <div class="btn primary">Envoyer à Alexis</div>
   </div>
