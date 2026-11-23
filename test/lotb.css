@@ -1,0 +1,79 @@
+/* Itération 5, lot B : pièces communes aux 8 planches nouvelles (s'ajoute à dance.css). */
+.duo .notes, html.duo .notes { max-width: 370px; }
+html.duo .board { padding: 20px 26px; gap: 26px; }
+html.duo .notes h1 { font-size: 34px; margin: 8px 0 6px; }
+html.duo .notes .screenname { font-size: 14px; margin-bottom: 10px; }
+html.duo .notes h2 { margin: 12px 0 6px; }
+html.duo .notes li { font-size: 13px; line-height: 1.36; padding: 4px 0 4px 20px; }
+html.duo .notes .test { font-size: 13px; padding: 11px 14px; margin-top: 10px; }
+html.duo .notes .flow { font-size: 12px; margin-top: 8px; }
+
+.tabbar svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.top { position: absolute; top: 56px; left: 16px; right: 16px; height: 40px; display: flex; align-items: center; gap: 10px; z-index: 20; font: 700 16px -apple-system, system-ui, sans-serif; }
+.top .x { font: 300 30px/1 -apple-system, system-ui, sans-serif; width: 20px; margin-top: -3px; }
+.top small { font: 500 13px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.top .end { margin-left: auto; }
+.top .avatar { width: 32px; height: 32px; font-size: 11px; }
+.av-ref { background: var(--ref); color: #121418; }
+
+.blk { position: absolute; left: 14px; right: 14px; }
+.h { font: 800 27px/1.12 -apple-system, system-ui, sans-serif; letter-spacing: -.02em; }
+.h.s { font-size: 23px; }
+.p { font: 500 14.5px/1.4 -apple-system, system-ui, sans-serif; color: var(--t2); margin-top: 7px; }
+.p b { color: var(--t1); font-weight: 650; }
+.lbl { font: 700 11px ui-monospace, Menlo, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--t2); margin-bottom: 8px; display: flex; align-items: center; }
+.lbl em { margin-left: auto; font: 600 12px -apple-system, system-ui, sans-serif; font-style: normal; letter-spacing: 0; text-transform: none; }
+
+.box { border-radius: 22px; background: var(--s1); border: 1px solid var(--line); padding: 4px 14px; }
+.box .ln { display: flex; gap: 12px; align-items: center; padding: 11px 0; border-top: 1px solid var(--line); font: 500 13.5px/1.35 -apple-system, system-ui, sans-serif; color: var(--t2); }
+.box .ln:first-child { border-top: 0; }
+.box .ln b { color: var(--t1); font-weight: 700; display: block; font-size: 14.5px; }
+.box .ln .r { margin-left: auto; text-align: right; flex: none; font: 700 15px -apple-system, system-ui, sans-serif; color: var(--t1); }
+.box .ln .r small { display: block; font: 500 11.5px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.ic { width: 28px; height: 28px; border-radius: 9px; border: 1.5px solid rgba(255,255,255,.3); display: grid; place-items: center; flex: none; font: 800 13px -apple-system, system-ui, sans-serif; color: #fff; }
+
+/* Choix (radio) */
+.opt { display: flex; gap: 12px; align-items: center; padding: 13px 14px; border-radius: 20px; background: var(--s1); border: 1.5px solid var(--line); margin-top: 8px; }
+.opt.on { border-color: #fff; background: var(--s2); }
+.opt .rd { width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(255,255,255,.35); flex: none; }
+.opt.on .rd { border: 7px solid #fff; }
+.opt b { display: block; font: 700 15px -apple-system, system-ui, sans-serif; }
+.opt span.d { font: 500 12.5px/1.35 -apple-system, system-ui, sans-serif; color: var(--t2); }
+.opt .pr { margin-left: auto; text-align: right; font: 750 17px -apple-system, system-ui, sans-serif; flex: none; }
+.opt .pr small { display: block; font: 500 11px -apple-system, system-ui, sans-serif; color: var(--t2); }
+
+/* Miniature vidéo */
+.th { position: relative; width: 64px; height: 84px; border-radius: 13px; flex: none; background: #2a1d17; overflow: hidden; }
+.th .art { left: -100px; top: -4px; width: 260px; height: 173px; }
+.th .tg { position: absolute; left: 4px; bottom: 4px; font: 800 8.5px ui-monospace, Menlo, monospace; padding: 2px 4px; border-radius: 4px; z-index: 3; }
+.tg.me { background: var(--me); color: #121418; }
+.tg.ref { background: var(--ref); color: #121418; }
+.th.me { box-shadow: inset 0 0 0 2px var(--me); }
+.th.ref { box-shadow: inset 0 0 0 2px var(--ref); }
+
+.acts { position: absolute; left: 14px; right: 14px; top: 756px; display: flex; gap: 8px; }
+.acts .btn { height: 54px; }
+.acts .btn.ghost { padding: 0 16px; font-size: 14.5px; }
+.acts .btn.primary { flex: 1; }
+
+/* Duo plein écran (repris de B2C 14) */
+.pane { top: 104px; height: 290px; width: 194px; background: #2a1d17; }
+.pane.l { left: 0; } .pane.r { right: 0; }
+.pane .art { left: -133px; top: 0; width: 460px; height: 307px; }
+.pane .veil { background: linear-gradient(180deg, rgba(0,0,0,.4), rgba(0,0,0,0) 22%, rgba(0,0,0,0) 78%, rgba(0,0,0,.5)); }
+.seam { position: absolute; left: 194px; top: 104px; width: 2px; height: 290px; background: var(--bg); z-index: 5; }
+.edge { position: absolute; top: 104px; height: 290px; width: 3px; z-index: 6; }
+.edge.l { left: 0; background: var(--ref); } .edge.r { right: 0; background: var(--me); }
+.tag { position: absolute; top: 114px; z-index: 10; font: 800 11px ui-monospace, Menlo, monospace; letter-spacing: .06em; padding: 4px 8px; border-radius: 7px; }
+.tag.l { left: 10px; background: var(--ref); color: #121418; }
+.tag.r { right: 10px; background: var(--me); color: #121418; }
+
+/* Micro tenu (prof) */
+.hold { position: absolute; left: 0; right: 0; top: 664px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.hold .mic { width: 84px; height: 84px; border-radius: 50%; background: var(--ref); display: grid; place-items: center; box-shadow: 0 0 0 10px rgba(255,128,8,.14), 0 0 0 22px rgba(255,128,8,.06); }
+.hold .mic svg { width: 34px; height: 34px; fill: none; stroke: #121418; stroke-width: 2; stroke-linecap: round; }
+.hold span { font: 600 12.5px -apple-system, system-ui, sans-serif; color: var(--t2); }
+.bubble { border-radius: 18px; background: var(--s1); border: 1px solid var(--line); padding: 10px 12px; }
+.bubble .who { font: 650 11.5px -apple-system, system-ui, sans-serif; color: var(--t2); display: flex; gap: 8px; align-items: center; margin-bottom: 6px; }
+.bubble q { display: block; font: 500 14px/1.4 -apple-system, system-ui, sans-serif; color: var(--t1); quotes: "« " " »"; margin-top: 6px; }
+.at { font: 750 11.5px ui-monospace, Menlo, monospace; padding: 2px 7px; border-radius: 6px; background: rgba(255,255,255,.12); color: #fff; }

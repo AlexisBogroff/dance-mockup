@@ -1,0 +1,197 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Feedback test">
+<meta name="theme-color" content="#07070A">
+<link rel="apple-touch-icon" href="icon.png">
+<title>Feedback · version test, 8 écrans</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; background: #07070A; color: #F5F5F7; font: 15px/1.4 -apple-system, system-ui, sans-serif; overflow: hidden; overscroll-behavior: none; touch-action: manipulation; -webkit-user-select: none; user-select: none; }
+body.scroll, html:has(body.scroll) { overflow-y: auto; height: auto; }
+body.scroll #stage { position: relative; left: 0; top: 0; transform-origin: 0 0; }
+body.desk { background: radial-gradient(ellipse at 50% 30%, #1d1a24, #07070A 70%); }
+#stage { position: absolute; left: 50%; top: 50%; width: 390px; height: 844px; transform-origin: 50% 50%; overflow: hidden; background: #07070A; }
+body.desk #stage { border-radius: 54px; box-shadow: 0 0 0 8px #1A1A1C, 0 0 0 10px #3A3A3D, 0 50px 90px -30px rgba(0,0,0,.8); }
+#stage iframe { position: absolute; inset: 0; width: 390px; height: 100%; border: 0; visibility: hidden; background: #07070A; }
+#stage iframe.on { visibility: visible; }
+#toast { position: absolute; left: 20px; right: 20px; bottom: 112px; z-index: 50; padding: 13px 16px; border-radius: 18px; background: rgba(30,30,38,.82); -webkit-backdrop-filter: blur(22px) saturate(1.7); backdrop-filter: blur(22px) saturate(1.7); box-shadow: inset 0 0 0 1px rgba(255,255,255,.12), 0 16px 40px -10px rgba(0,0,0,.7); font: 550 14.5px/1.35 -apple-system, system-ui; opacity: 0; transform: translateY(10px); transition: .22s; pointer-events: none; }
+#toast.on { opacity: 1; transform: none; }
+.over { position: absolute; inset: 0; z-index: 60; display: none; background: rgba(7,7,10,.96); }
+.over.on { display: block; animation: fade .25s; }
+@keyframes fade { from { opacity: 0 } }
+#cross { display: none; flex-direction: column; justify-content: center; padding: 0 34px; }
+#cross.on { display: flex; }
+#cross .l { font: 700 12px ui-monospace, Menlo, monospace; letter-spacing: .14em; text-transform: uppercase; color: #FF8008; }
+#cross .l.me { color: #F5F5F2; }
+#cross .m { font: 750 29px/1.12 -apple-system, system-ui; letter-spacing: -.02em; margin-top: 14px; }
+#cross .h { position: absolute; bottom: 64px; left: 34px; right: 34px; font: 550 13.5px -apple-system, system-ui; color: #A1A1AA; }
+#menu { background: rgba(7,7,10,.7); }
+#menu .sheet { position: absolute; left: 10px; right: 10px; bottom: 10px; max-height: 760px; overflow: auto; border-radius: 30px; padding: 18px 16px 16px; background: rgba(30,30,38,.9); -webkit-backdrop-filter: blur(24px) saturate(1.7); backdrop-filter: blur(24px) saturate(1.7); box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); animation: up .25s; }
+@keyframes up { from { transform: translateY(40px); opacity: 0 } }
+#menu h3 { font: 700 11px ui-monospace, Menlo, monospace; letter-spacing: .14em; text-transform: uppercase; color: #A1A1AA; margin: 12px 6px 7px; }
+#menu h3:first-child { margin-top: 0; }
+#menu button { display: block; width: 100%; text-align: left; border: 0; border-radius: 14px; padding: 11px 14px; margin: 2px 0; background: rgba(255,255,255,.07); color: #F5F5F7; font: 600 15px -apple-system, system-ui; }
+#menu button.main { background: #fff; color: #000; text-align: center; }
+#menu .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+#menu .grid button { font-size: 13px; padding: 9px 11px; margin: 0; }
+#menu .grid button.cur { box-shadow: inset 0 0 0 2px #fff; }
+#help .card { position: absolute; left: 22px; right: 22px; top: 50%; transform: translateY(-50%); }
+#help h2 { font: 800 32px/1.05 -apple-system, system-ui; letter-spacing: -.03em; margin-bottom: 18px; }
+#help p { color: #D4D4DC; margin: 11px 0; font-size: 15.5px; }
+#help p b { color: #fff; }
+#help button, #help .tip { margin-top: 22px; }
+#help button { width: 100%; height: 54px; border: 0; border-radius: 27px; background: #fff; color: #000; font: 700 16.5px -apple-system, system-ui; }
+#help .tip { font-size: 13px; color: #A1A1AA; }
+#side { position: fixed; left: 28px; top: 50%; transform: translateY(-50%); width: 270px; display: none; }
+body.wide #side { display: block; }
+#side h1 { font: 800 22px -apple-system, system-ui; letter-spacing: -.02em; }
+#side .sub { color: #A1A1AA; font-size: 13px; margin: 4px 0 16px; }
+#side h3 { font: 700 10.5px ui-monospace, Menlo, monospace; letter-spacing: .14em; text-transform: uppercase; color: #63636E; margin: 14px 0 5px; }
+#side a { display: block; padding: 5px 10px; border-radius: 9px; color: #A1A1AA; text-decoration: none; font-size: 13.5px; cursor: pointer; }
+#side a.cur { background: rgba(255,255,255,.1); color: #fff; }
+#side .keys { margin-top: 18px; font-size: 12px; color: #63636E; line-height: 1.6; }
+</style></head><body>
+<div id="side"><h1>Feedback · version test</h1><div class="sub" id="count">Prototype cliquable</div><div id="list"></div>
+<div class="keys">Clic : comme dans l'app · clic hors zone : les zones s'allument · appui long ou touche M : le menu · ← : écran précédent</div></div>
+<div id="stage">
+  <div id="toast"></div>
+  <div id="cross" class="over"><div class="l"></div><div class="m"></div><div class="h">Touche pour continuer</div></div>
+  <div id="menu" class="over"><div class="sheet"></div></div>
+  <div id="help" class="over"><div class="card">
+    <h2>La version test :<br>8 écrans,<br>un retour payé.</h2>
+    <p><b>Touche comme dans l'app.</b> Les boutons, les onglets et les lignes mènent à l'écran suivant.</p>
+    <p><b>Touche ailleurs</b> : les zones actives s'allument en bleu.</p>
+    <p><b>Appui long</b> n'importe où : le menu (écran précédent, recommencer, côté prof ou élève, aller à un écran).</p>
+    <p>Le tour : Mike règle son prix et son lien Stripe, puis partage son lien d'invitation ; Alexis entre, se filme, paie Mike et envoie ; Mike corrige à la voix ; Alexis écoute et refilme.</p><p>Hors de cette version : cours, recherche de prof, dessin, abonnements.</p>
+    <button id="go">Commencer le tour</button>
+    <div class="tip" id="tip">Pour le plein écran sur iPhone : Partager → « Sur l'écran d'accueil », puis ouvre « Feedback test » depuis l'icône.</div>
+  </div></div>
+</div>
+<script src="flows.js"></script>
+<script>
+const $ = (s) => document.querySelector(s);
+const stage = $("#stage");
+const coarse = matchMedia("(pointer: coarse)").matches && Math.min(innerWidth, innerHeight) < 600;
+const standalone = navigator.standalone || matchMedia("(display-mode: standalone)").matches;
+window.PROTO_PHONE = coarse;
+window.PROTO_HINTS = false;
+document.body.classList.toggle("desk", !coarse);
+if (standalone) $("#tip").remove();
+const LABEL = Object.fromEntries(STATES.map((s) => [s[0], s[3]]));
+const frames = {};
+for (const [id] of STATES) {
+  const f = document.createElement("iframe");
+  f.src = `s-${id}.html`; f.setAttribute("scrolling", "no"); f.dataset.id = id;
+  stage.insertBefore(f, $("#toast")); frames[id] = f;
+}
+// Sur le téléphone, l'écran prend toute la largeur (440 pt sur un 16 Pro Max : ×1,13) et toute la hauteur disponible.
+function fit() {
+  const W = innerWidth, H = innerHeight;
+  let s = coarse ? W / 390 : Math.min(1, (H - 48) / 844, (W - 40) / 390);
+  // Dans Safari, les barres du navigateur prennent de la hauteur : la page défile un peu (les barres se replient).
+  // Depuis l'icône de l'écran d'accueil, l'écran tient entier (956 pt = 847 × 1,13).
+  const tall = coarse && H / s < 834;
+  const h = coarse ? (tall ? 844 : H / s) : 844;
+  stage.style.height = h + "px";
+  document.body.classList.toggle("scroll", tall);
+  document.body.classList.toggle("wide", !coarse && W >= 390 * s + 640);
+  stage.style.transform = tall ? `scale(${s})` : `translate(-50%, -50%) scale(${s})`;
+  stage.style.marginBottom = tall ? `${844 * (s - 1)}px` : "";
+}
+addEventListener("resize", fit); fit();
+
+let cur = null, hist = [], mode = "tour", autoT = null, toastT = null;
+const flags = {};
+function show(id, dir = 1) {
+  if (!frames[id]) return;
+  clearTimeout(autoT);
+  const prev = cur && frames[cur], next = frames[id];
+  if (prev === next) return;
+  next.classList.add("on");
+  if (prev && dir) {
+    const d = 390 * dir;
+    next.animate([{ transform: `translateX(${d}px)` }, { transform: "none" }], { duration: 300, easing: "cubic-bezier(.2,.8,.2,1)" });
+    prev.animate([{ transform: "none", opacity: 1 }, { transform: `translateX(${-d * 0.3}px)`, opacity: .6 }], { duration: 300, easing: "cubic-bezier(.2,.8,.2,1)" })
+      .onfinish = () => prev.classList.remove("on");
+  } else if (prev) prev.classList.remove("on");
+  cur = id; location.replace("#" + id);
+  const F = FLOWS[id] || {};
+  if (F.set) flags[F.set] = true;
+  if (F.unset) delete flags[F.unset];
+  if (F.auto) autoT = setTimeout(() => cur === id && run(F.auto[1]), F.auto[0]);
+  document.querySelectorAll("#list a").forEach((a) => a.classList.toggle("cur", a.dataset.id === id));
+}
+function go(id) { if (cur) hist.push(cur); show(id, 1); }
+function back() { const p = hist.pop(); if (p) show(p, -1); }
+function toast(t) {
+  const el = $("#toast"); el.textContent = t; el.classList.add("on");
+  clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove("on"), 2300);
+}
+function cross(o) {
+  const v = (mode === "prof" && o.prof) || (mode === "eleve" && o.eleve) || o;
+  if (mode === "prof" && v.x[0] === "e") return toast("Envoyé. La suite se passe côté élève : menu → Côté élève.");
+  const el = $("#cross");
+  el.querySelector(".l").textContent = v.l; el.querySelector(".l").classList.toggle("me", v.x[0] === "e");
+  el.querySelector(".m").textContent = v.m; el.classList.add("on");
+  const done = () => { el.classList.remove("on"); el.onclick = null; clearTimeout(t); hist.push(cur); show(v.x, 0); };
+  const t = setTimeout(done, 4200); el.onclick = done;
+}
+function run(a) {
+  if (typeof a === "object") return cross(a);
+  const steps = a.split(">");
+  if (steps.length > 1) { run(steps[0]); return setTimeout(() => run(steps.slice(1).join(">")), 750); }
+  if (a === "back") return back();
+  if (a.startsWith("toast:")) return toast(a.slice(6));
+  if (a.startsWith("cond:")) { const [, f, yes, ...no] = a.split(":"); return run(flags[f] ? yes : no.join(":")); }
+  go(a);
+}
+function start(m) {
+  mode = m; hist = []; for (const k in flags) delete flags[k];
+  closeOver(); show(m === "eleve" ? "e1" : "p1", 0);
+}
+function closeOver() { document.querySelectorAll(".over").forEach((o) => o.classList.remove("on")); }
+function hints(on) {
+  PROTO_HINTS = on; for (const f of Object.values(frames)) f.contentWindow?.postMessage({ t: "hints", on }, "*");
+}
+function menu() {
+  const sh = $("#menu .sheet");
+  sh.innerHTML = `<h3>${LABEL[cur] || ""}</h3>
+    <button class="main" data-m="back">Écran précédent</button>
+    <h3>Recommencer</h3>
+    <button data-m="tour">Le tour complet · prof puis élève</button>
+    <button data-m="prof">Côté prof seulement</button>
+    <button data-m="eleve">Côté élève seulement</button>
+    <button data-m="hints">${PROTO_HINTS ? "Cacher" : "Montrer"} les zones à toucher</button>
+    <h3>Aller à un écran</h3><div class="grid">${STATES.map((s) => `<button data-g="${s[0]}" class="${s[0] === cur ? "cur" : ""}">${s[3]}</button>`).join("")}</div>
+    <button data-m="close" style="margin-top:10px;text-align:center">Fermer</button>`;
+  $("#menu").classList.add("on");
+}
+$("#menu").addEventListener("click", (e) => {
+  const b = e.target.closest("button");
+  if (!b) { if (e.target.id === "menu") closeOver(); return; }
+  const m = b.dataset.m, g = b.dataset.g;
+  closeOver();
+  if (g) return go(g);
+  if (m === "back") back();
+  else if (m === "hints") hints(!PROTO_HINTS);
+  else if (m && m !== "close") start(m);
+});
+addEventListener("message", (e) => {
+  const d = e.data || {};
+  if (d.t === "menu") menu();
+  if (d.t === "act") run(d.a);
+});
+addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft" || e.key === "Backspace") back();
+  if (e.key === "m" || e.key === "M" || e.key === "Escape") $("#menu").classList.contains("on") ? closeOver() : menu();
+});
+$("#count").textContent = `Prototype cliquable · ${new Set(STATES.map((s) => s[1])).size} écrans, ${STATES.length} états`;
+$("#list").innerHTML = `<h3>Prof · Mike (écrans 6 à 8)</h3>${STATES.filter((s) => s[0][0] === "p").map((s) => `<a data-id="${s[0]}">${s[3]}</a>`).join("")}<h3>Élève · Alexis (écrans 1 à 5)</h3>${STATES.filter((s) => s[0][0] === "e").map((s) => `<a data-id="${s[0]}">${s[3]}</a>`).join("")}`;
+$("#list").addEventListener("click", (e) => { const a = e.target.closest("a"); if (a) go(a.dataset.id); });
+$("#go").onclick = () => { localStorage.setItem("fbt-seen", "1"); closeOver(); };
+const h0 = location.hash.slice(1);
+show(frames[h0] ? h0 : "p1", 0);
+if (!localStorage.getItem("fbt-seen") || !frames[h0]) $("#help").classList.add("on");
+</script></body></html>

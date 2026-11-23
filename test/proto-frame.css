@@ -1,0 +1,12 @@
+
+html.proto, html.proto body { width: 390px; height: 100vh; overflow: hidden; background: #07070A; margin: 0; }
+html.proto .phone { width: 390px; height: 100vh; padding: 0; border-radius: 0; background: none; box-shadow: none; }
+html.proto .screen { border-radius: 0; height: 100vh; }
+html.proto * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+html.proto { touch-action: manipulation; }
+html.on-phone .status > *, html.on-phone .island, html.on-phone .home-ind { visibility: hidden; }
+[data-hot] { cursor: pointer; transition: transform .12s, opacity .12s; }
+[data-hot]:active { opacity: .72; transform: scale(.97); }
+html.flash [data-hot], html.hints [data-hot] { outline: 2px solid #3D8BFF; outline-offset: 2px; box-shadow: 0 0 0 999px rgba(61,139,255,0) inset; }
+html.flash [data-hot] { animation: hot .9s; }
+@keyframes hot { 0%, 100% { outline-color: rgba(61,139,255,0); } 15%, 70% { outline-color: #3D8BFF; } }
